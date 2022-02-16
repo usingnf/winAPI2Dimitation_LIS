@@ -1,15 +1,22 @@
 ﻿// winAPI2Dimitation_LIS.cpp : 애플리케이션에 대한 진입점을 정의합니다.
 //
 
-#include "framework.h"
+#include "pch.h"
 #include "winAPI2Dimitation_LIS.h"
 
 #define MAX_LOADSTRING 100
 
+//HINSTACNE, HWND 등의 자료형은 typedef로 어떤 역할을 하는 자료형인지 이름을 바꾸어 준 것.
+//CALLBACK APIENTRY, _In_ 등은 주석의 역할을 해주는 키워드.
+
 // 전역 변수:
+//WCHAR : 모든 문자(영어 외의)를 표현하기 위한 자료형
 HINSTANCE hInst;                                // 현재 인스턴스입니다.
 WCHAR szTitle[MAX_LOADSTRING];                  // 제목 표시줄 텍스트입니다.
 WCHAR szWindowClass[MAX_LOADSTRING];            // 기본 창 클래스 이름입니다.
+PAINTSTRUCT ps;
+POINT mousePos;
+POINT keyPos = { 0,0 };
 
 // 이 코드 모듈에 포함된 함수의 선언을 전달합니다:
 ATOM                MyRegisterClass(HINSTANCE hInstance);
@@ -17,11 +24,17 @@ BOOL                InitInstance(HINSTANCE, int);
 LRESULT CALLBACK    WndProc(HWND, UINT, WPARAM, LPARAM);
 INT_PTR CALLBACK    About(HWND, UINT, WPARAM, LPARAM);
 
+//hInstance : 실행된 프로세스의 시작 주소, 인스턴스 핸들
+//hPrevInstance : 이전에 실행된 인스턴스 핸들
+//lpCmdLine : 명령으로 입력된 프로그램의 인수
+//nCmdShow : 윈도우의 보이는(시작될) 상태
 int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
                      _In_opt_ HINSTANCE hPrevInstance,
                      _In_ LPWSTR    lpCmdLine,
                      _In_ int       nCmdShow)
 {
+
+    //안쓰는 인자들.
     UNREFERENCED_PARAMETER(hPrevInstance);
     UNREFERENCED_PARAMETER(lpCmdLine);
 
@@ -38,11 +51,15 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
         return FALSE;
     }
 
+    //단축키 로드. 아래쪽에 있는 TranslateAccelerator로 단축키인지 확인
     HACCEL hAccelTable = LoadAccelerators(hInstance, MAKEINTRESOURCE(IDC_WINAPI2DIMITATIONLIS));
 
+    //아래쪽에 GetMessage로 msg값에 메세지를 저장.
     MSG msg;
 
     // 기본 메시지 루프입니다:
+    //GetMessage는 메세지가 없을 경우 false 반환이 아니라, 대기함. false를 반환하는 경우는 exit 등의 message를 받았을 경우.
+    //message가 없어도 무언가 작동되게 하고 싶으면 GetMessage가 아니라 PeekMessage를 사용.
     while (GetMessage(&msg, nullptr, 0, 0))
     {
         if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg))
@@ -64,20 +81,29 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 //
 ATOM MyRegisterClass(HINSTANCE hInstance)
 {
+    //기본 창 정보 설정
     WNDCLASSEXW wcex;
 
+    //구조체의 크기
     wcex.cbSize = sizeof(WNDCLASSEX);
 
+    //창 스타일 설정
     wcex.style          = CS_HREDRAW | CS_VREDRAW;
+    //창 프로시저 설정(윈도우 메세지 처리 함수)
     wcex.lpfnWndProc    = WndProc;
+    //창이 사용하고자 하는 여분의 메모리 크기?
     wcex.cbClsExtra     = 0;
+    //개별 창에서 사용하고자 하는 여분의 메모리 크기?
     wcex.cbWndExtra     = 0;
+    //핸들 값
     wcex.hInstance      = hInstance;
     wcex.hIcon          = LoadIcon(hInstance, MAKEINTRESOURCE(IDI_WINAPI2DIMITATIONLIS));
     wcex.hCursor        = LoadCursor(nullptr, IDC_ARROW);
     wcex.hbrBackground  = (HBRUSH)(COLOR_WINDOW+1);
+    //창 메뉴줄 설정
     wcex.lpszMenuName   = MAKEINTRESOURCEW(IDC_WINAPI2DIMITATIONLIS);
     wcex.lpszClassName  = szWindowClass;
+    //창의 작은 아이콘
     wcex.hIconSm        = LoadIcon(wcex.hInstance, MAKEINTRESOURCE(IDI_SMALL));
 
     return RegisterClassExW(&wcex);
@@ -97,13 +123,33 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 {
    hInst = hInstance; // 인스턴스 핸들을 전역 변수에 저장합니다.
 
-   HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
-      CW_USEDEFAULT, 0, CW_USEDEFAULT, 0, nullptr, nullptr, hInstance, nullptr);
+   //설정된 창 정보로 실제로 창 생성
+   HWND hWnd = CreateWindowW(szWindowClass,
+                             szTitle,
+                             WS_MYSTYLE /*WS_OVERLAPPEDWINDOW*/,
+                             WS_STARTX, //CW_USEDEFAULT
+                             WS_STARTY, //0
+                             WS_WIDTH, //CW_USEDEFAULT
+                             WS_HEIGHT, //0
+                             nullptr, //창의 부모
+                             nullptr, 
+                             hInstance, 
+                             nullptr); //추가 매개변수
 
    if (!hWnd)
    {
       return FALSE;
    }
+   
+   //창 메뉴, 스크롤 등을 제외한 크기로 창 크기 설정.
+   RECT rc;
+   rc.top = 0;
+   rc.left = 0;
+   rc.bottom = WS_HEIGHT;
+   rc.right = WS_WIDTH;
+   AdjustWindowRect(&rc, WS_MYSTYLE, false); // false로 해야 메뉴 제외 크기값 얻음. 해당 함수로 rc의 값을 재조절함.
+   //실제 창 크기,위치 재설정.
+   SetWindowPos(hWnd, NULL, WS_STARTX, WS_STARTY, rc.right - rc.left, rc.bottom - rc.top, SWP_NOZORDER | SWP_NOMOVE);
 
    ShowWindow(hWnd, nCmdShow);
    UpdateWindow(hWnd);
@@ -142,11 +188,64 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             }
         }
         break;
+    case WM_LBUTTONDOWN:
+    {
+        mousePos.x = LOWORD(lParam);
+        mousePos.y = HIWORD(lParam);
+        InvalidateRect(hWnd, NULL, true);
+        break;
+    }
+        
+    case WM_LBUTTONUP:
+        break;
+    case WM_MOUSEMOVE:
+    {
+        mousePos.x = LOWORD(lParam);
+        mousePos.y = HIWORD(lParam);
+        InvalidateRect(hWnd, NULL, true);
+        break;
+    }
+        
+    case WM_KEYDOWN:
+        switch (wParam)
+        {
+        case VK_UP:
+        case 'W':
+        {
+            keyPos.y += -10;
+            break;
+        }
+        case VK_LEFT:
+        case 'A':
+        {
+            keyPos.x += -10;
+            break;
+        }
+        case VK_DOWN:
+        case 'S':
+        {
+            keyPos.y += 10;
+            break;
+        }
+        case VK_RIGHT:
+        case 'D':
+        {
+            keyPos.x += 10;
+            break;
+        }
+        default:
+            break;
+        }
+        InvalidateRect(hWnd, NULL, true);
+        break;
+    case WM_KEYUP:
+        break;
     case WM_PAINT:
         {
-            PAINTSTRUCT ps;
             HDC hdc = BeginPaint(hWnd, &ps);
-            // TODO: 여기에 hdc를 사용하는 그리기 코드를 추가합니다...
+            int size = 50;
+            Ellipse(hdc, mousePos.x - (size / 2), mousePos.y - (size / 2), mousePos.x + (size / 2), mousePos.y + (size / 2));
+            Rectangle(hdc, keyPos.x - (size / 2), keyPos.y - (size / 2), keyPos.x + (size / 2), keyPos.y + (size / 2));
             EndPaint(hWnd, &ps);
         }
         break;
