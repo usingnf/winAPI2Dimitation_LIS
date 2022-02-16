@@ -17,6 +17,9 @@ WCHAR szWindowClass[MAX_LOADSTRING];            // 기본 창 클래스 이름�
 PAINTSTRUCT ps;
 POINT mousePos;
 POINT keyPos = { 0,0 };
+POINT startPos = { 0,0 };
+POINT endPos = { 0,0 };
+bool isMouseButtonDown = false;
 
 // 이 코드 모듈에 포함된 함수의 선언을 전달합니다:
 ATOM                MyRegisterClass(HINSTANCE hInstance);
@@ -190,6 +193,11 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         break;
     case WM_LBUTTONDOWN:
     {
+        isMouseButtonDown = true;
+        startPos.x = LOWORD(lParam);
+        startPos.y = HIWORD(lParam);
+        endPos.x = LOWORD(lParam);
+        endPos.y = HIWORD(lParam);
         mousePos.x = LOWORD(lParam);
         mousePos.y = HIWORD(lParam);
         InvalidateRect(hWnd, NULL, true);
@@ -197,9 +205,17 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
     }
         
     case WM_LBUTTONUP:
+    {
+        isMouseButtonDown = false;
         break;
+    }
     case WM_MOUSEMOVE:
     {
+        if (isMouseButtonDown == true)
+        {
+            endPos.x = LOWORD(lParam);
+            endPos.y = HIWORD(lParam);
+        }
         mousePos.x = LOWORD(lParam);
         mousePos.y = HIWORD(lParam);
         InvalidateRect(hWnd, NULL, true);
@@ -243,9 +259,25 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
     case WM_PAINT:
         {
             HDC hdc = BeginPaint(hWnd, &ps);
+            HPEN hRedPen = CreatePen(PS_SOLID, 1, RGB(255, 0, 0));
+            HBRUSH hBlueBrush = CreateSolidBrush(RGB(0, 0, 255));
+
+            // 기존 펜과 브러쉬 ID 값을 받아 둠
+            HPEN hOldPen = (HPEN)SelectObject(hdc, hRedPen);
+            HBRUSH hOldBrush = (HBRUSH)SelectObject(hdc, hBlueBrush);
+
             int size = 50;
             Ellipse(hdc, mousePos.x - (size / 2), mousePos.y - (size / 2), mousePos.x + (size / 2), mousePos.y + (size / 2));
             Rectangle(hdc, keyPos.x - (size / 2), keyPos.y - (size / 2), keyPos.x + (size / 2), keyPos.y + (size / 2));
+            Rectangle(hdc, startPos.x, startPos.y, endPos.x, endPos.y);
+
+            // DC의 펜과 브러쉬를 원래 것으로 되돌림
+            SelectObject(hdc, hOldPen);
+            SelectObject(hdc, hOldBrush);
+            // 다 쓴 펜, 브러쉬 삭제 요청
+            DeleteObject(hRedPen);
+            DeleteObject(hBlueBrush);
+
             EndPaint(hWnd, &ps);
         }
         break;
