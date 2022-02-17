@@ -6,12 +6,16 @@
 
 #define MAX_LOADSTRING 100
 
+#include "CCore.h"
+
+
 //HINSTACNE, HWND 등의 자료형은 typedef로 어떤 역할을 하는 자료형인지 이름을 바꾸어 준 것.
 //CALLBACK APIENTRY, _In_ 등은 주석의 역할을 해주는 키워드.
 
 // 전역 변수:
 //WCHAR : 모든 문자(영어 외의)를 표현하기 위한 자료형
 HINSTANCE hInst;                                // 현재 인스턴스입니다.
+HWND hWnd;
 WCHAR szTitle[MAX_LOADSTRING];                  // 제목 표시줄 텍스트입니다.
 WCHAR szWindowClass[MAX_LOADSTRING];            // 기본 창 클래스 이름입니다.
 PAINTSTRUCT ps;
@@ -63,14 +67,30 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     // 기본 메시지 루프입니다:
     //GetMessage는 메세지가 없을 경우 false 반환이 아니라, 대기함. false를 반환하는 경우는 exit 등의 message를 받았을 경우.
     //message가 없어도 무언가 작동되게 하고 싶으면 GetMessage가 아니라 PeekMessage를 사용.
-    while (GetMessage(&msg, nullptr, 0, 0))
+    while (true)
     {
-        if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg))
+        if (PeekMessage(&msg, nullptr, 0, 0, PM_REMOVE))
         {
-            TranslateMessage(&msg);
-            DispatchMessage(&msg);
+            if (WM_QUIT == msg.message)
+            {
+                break;
+            }
+                        
+            if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg))
+            {
+                TranslateMessage(&msg);
+                DispatchMessage(&msg);
+            }
+        }
+        else
+        {
+            // 게임 update
+            // 게임 render
+            CCore::getInstance()->update();
+            CCore::getInstance()->render();
         }
     }
+    //CCore::release();
 
     return (int) msg.wParam;
 }
@@ -127,7 +147,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    hInst = hInstance; // 인스턴스 핸들을 전역 변수에 저장합니다.
 
    //설정된 창 정보로 실제로 창 생성
-   HWND hWnd = CreateWindowW(szWindowClass,
+   hWnd = CreateWindowW(szWindowClass,
                              szTitle,
                              WS_MYSTYLE /*WS_OVERLAPPEDWINDOW*/,
                              WS_STARTX, //CW_USEDEFAULT
@@ -258,6 +278,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         break;
     case WM_PAINT:
         {
+            //dc : device context
             HDC hdc = BeginPaint(hWnd, &ps);
             HPEN hRedPen = CreatePen(PS_SOLID, 1, RGB(255, 0, 0));
             HBRUSH hBlueBrush = CreateSolidBrush(RGB(0, 0, 255));
