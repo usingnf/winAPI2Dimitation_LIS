@@ -22,8 +22,11 @@
     <Filter Include="Object">
       <UniqueIdentifier>{4a2fa5a7-a795-44d1-8d20-672a6447eee8}</UniqueIdentifier>
     </Filter>
-    <Filter Include="소스 파일\Util">
+    <Filter Include="Util">
       <UniqueIdentifier>{2308ff56-ce55-4cfd-ac4a-7fe6e6e3c2e0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\TimeManager">
+      <UniqueIdentifier>{a4f766c6-21dd-4d8f-93a3-e933a5aa1cb2}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -42,17 +45,20 @@
     <ClInclude Include="pch.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="CObject.h">
-      <Filter>Object</Filter>
-    </ClInclude>
     <ClInclude Include="CCore.h">
       <Filter>Engine\Core</Filter>
     </ClInclude>
     <ClInclude Include="CSingleton.h">
-      <Filter>소스 파일\Util</Filter>
+      <Filter>Util</Filter>
     </ClInclude>
     <ClInclude Include="logger.h">
-      <Filter>소스 파일\Util</Filter>
+      <Filter>Util</Filter>
+    </ClInclude>
+    <ClInclude Include="CTimeManager.h">
+      <Filter>Engine\TimeManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Vec2.h">
+      <Filter>Util</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -62,14 +68,17 @@
     <ClCompile Include="pch.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="CObject.cpp">
-      <Filter>Object</Filter>
-    </ClCompile>
     <ClCompile Include="CCore.cpp">
       <Filter>Engine\Core</Filter>
     </ClCompile>
     <ClCompile Include="CSingleton.cpp">
-      <Filter>소스 파일\Util</Filter>
+      <Filter>Util</Filter>
+    </ClCompile>
+    <ClCompile Include="CTimeManager.cpp">
+      <Filter>Engine\TimeManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Vec2.cpp">
+      <Filter>Util</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

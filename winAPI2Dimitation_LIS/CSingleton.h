@@ -2,14 +2,11 @@
 #define SINGLETON(type)								\
 													\
 public:												\
-	static type* getInstance()							\
+	static type* getInstance()						\
 	{												\
 		static type _instance;						\
 		return &_instance;							\
-	}												\
-private:											\
-	type(){}										\
-	~type(){}										
+	}																				    								
 
 
 // ΩÃ±€≈Ê ≈¨∑°Ω∫ ¡§¿«
