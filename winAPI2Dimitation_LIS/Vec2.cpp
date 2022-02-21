@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "Vec2.h"
 
-void vnormalize(Vec2& vec)
+void normalize(Vec2& vec)
 {
 	if (abs(vec.x) + abs(vec.y) == 0)
 		return;
@@ -11,7 +11,7 @@ void vnormalize(Vec2& vec)
 	vec.y = y;
 }
 
-float vdistance(Vec2 left, Vec2 right)
+float distance(Vec2 left, Vec2 right)
 {
 	return sqrt(abs((left.x - right.x) * (left.x - right.x)) + abs((left.y - right.y) * (left.y - right.y)));
 }

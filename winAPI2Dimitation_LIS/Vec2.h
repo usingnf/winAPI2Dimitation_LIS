@@ -3,8 +3,8 @@
 
 struct Vec2
 {
-	float x;
-	float y;
+	double x;
+	double y;
 
 	Vec2()
 	{
@@ -12,13 +12,13 @@ struct Vec2
 		y = 0;
 	}
 
-	Vec2(float x, float y)
+	Vec2(double x, double y)
 	{
 		this->x = x;
 		this->y = y;
 	}
 };
 
-void vnormalize(Vec2& vec);
-float vdistance(Vec2 left, Vec2 right);
+void normalize(Vec2& vec);
+float distance(Vec2 left, Vec2 right);
 

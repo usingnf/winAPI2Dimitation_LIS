@@ -3,13 +3,9 @@
 
 #include "pch.h"
 #include "winAPI2Dimitation_LIS.h"
+#include "logger.h"
 
 #define MAX_LOADSTRING 100
-
-#include "CCore.h"
-#include "CTimeManager.h"
-
-
 
 //HINSTACNE, HWND 등의 자료형은 typedef로 어떤 역할을 하는 자료형인지 이름을 바꾸어 준 것.
 //CALLBACK APIENTRY, _In_ 등은 주석의 역할을 해주는 키워드.
@@ -88,13 +84,12 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
         {
             // 게임 update
             // 게임 render
-            CTimeManager::getInstance()->update();
             CCore::getInstance()->update();
             CCore::getInstance()->render();
             
         }
     }
-
+    
     return (int) msg.wParam;
 }
 
@@ -219,6 +214,8 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             //dc : device context
             HDC hdc = BeginPaint(hWnd, &ps);
             EndPaint(hWnd, &ps);
+            Logger::debug(L"Paint");
+            
         }
         break;
     case WM_DESTROY:

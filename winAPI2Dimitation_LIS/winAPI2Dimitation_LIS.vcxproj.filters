@@ -13,20 +13,59 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Engine">
+    <Filter Include="1. Engine">
       <UniqueIdentifier>{1e9fc952-b640-4a99-8b7c-10e06ff0b215}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Engine\Core">
+    <Filter Include="1. Engine\Core">
       <UniqueIdentifier>{fd952aae-4c84-4c4f-9e51-f7b7031f2fc5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Object">
-      <UniqueIdentifier>{4a2fa5a7-a795-44d1-8d20-672a6447eee8}</UniqueIdentifier>
+    <Filter Include="1. Engine\TimeManager">
+      <UniqueIdentifier>{a4f766c6-21dd-4d8f-93a3-e933a5aa1cb2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Util">
+    <Filter Include="1. Engine\KeyManager">
+      <UniqueIdentifier>{6a2002c0-a5c6-4bfc-ac3d-8ea0a341c566}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="1. Engine\ResourceManager">
+      <UniqueIdentifier>{9a41ff66-2fbd-4766-a695-bd2f9a3f51e8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="1. Engine\FieldManager">
+      <UniqueIdentifier>{8cc08747-a6be-4ebe-ab92-94b5e6000364}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="1. Engine\EventManager">
+      <UniqueIdentifier>{de126668-262b-4811-93d5-5788f6a38e55}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="2. Scene">
+      <UniqueIdentifier>{0b55e2ee-4793-4cb5-90da-a0d2df2a4ca9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="3. Camera">
+      <UniqueIdentifier>{6c711ecb-a44f-464f-803b-151ab39c4cfc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="5. Collider">
+      <UniqueIdentifier>{186a7df6-b98b-4fdf-860c-71cef4e51de8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="10. Util">
       <UniqueIdentifier>{2308ff56-ce55-4cfd-ac4a-7fe6e6e3c2e0}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Engine\TimeManager">
-      <UniqueIdentifier>{a4f766c6-21dd-4d8f-93a3-e933a5aa1cb2}</UniqueIdentifier>
+    <Filter Include="4. Object">
+      <UniqueIdentifier>{4a2fa5a7-a795-44d1-8d20-672a6447eee8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="6. Animator">
+      <UniqueIdentifier>{b8a656c4-aefa-4ec3-9c0c-746bc290275f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="10. Util\Vec2">
+      <UniqueIdentifier>{efc32578-fc66-4f5a-8255-c7fb52ece995}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="10. Util\Singleton">
+      <UniqueIdentifier>{62e516be-c424-427b-a731-2a9180854f6c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="10. Util\Logger">
+      <UniqueIdentifier>{4726a879-d116-40b0-9d9c-17297da0d123}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="1. Engine\ResourceManager\Texture">
+      <UniqueIdentifier>{ea547a25-39d0-479e-bd17-abac9d60b5b9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="1. Engine\ResourceManager\Sound">
+      <UniqueIdentifier>{b8622eb2-bf31-439f-ae91-44092656035c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -46,19 +85,37 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="CCore.h">
-      <Filter>Engine\Core</Filter>
-    </ClInclude>
-    <ClInclude Include="CSingleton.h">
-      <Filter>Util</Filter>
-    </ClInclude>
-    <ClInclude Include="logger.h">
-      <Filter>Util</Filter>
+      <Filter>1. Engine\Core</Filter>
     </ClInclude>
     <ClInclude Include="CTimeManager.h">
-      <Filter>Engine\TimeManager</Filter>
+      <Filter>1. Engine\TimeManager</Filter>
     </ClInclude>
     <ClInclude Include="Vec2.h">
-      <Filter>Util</Filter>
+      <Filter>10. Util\Vec2</Filter>
+    </ClInclude>
+    <ClInclude Include="CSingleton.h">
+      <Filter>10. Util\Singleton</Filter>
+    </ClInclude>
+    <ClInclude Include="logger.h">
+      <Filter>10. Util\Logger</Filter>
+    </ClInclude>
+    <ClInclude Include="CResource.h">
+      <Filter>1. Engine\ResourceManager</Filter>
+    </ClInclude>
+    <ClInclude Include="CGameObject.h">
+      <Filter>4. Object</Filter>
+    </ClInclude>
+    <ClInclude Include="CTexture.h">
+      <Filter>1. Engine\ResourceManager\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="CScene.h">
+      <Filter>2. Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="CKeyManager.h">
+      <Filter>1. Engine\KeyManager</Filter>
+    </ClInclude>
+    <ClInclude Include="CPlayer.h">
+      <Filter>4. Object</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -69,16 +126,34 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="CCore.cpp">
-      <Filter>Engine\Core</Filter>
-    </ClCompile>
-    <ClCompile Include="CSingleton.cpp">
-      <Filter>Util</Filter>
+      <Filter>1. Engine\Core</Filter>
     </ClCompile>
     <ClCompile Include="CTimeManager.cpp">
-      <Filter>Engine\TimeManager</Filter>
+      <Filter>1. Engine\TimeManager</Filter>
     </ClCompile>
     <ClCompile Include="Vec2.cpp">
-      <Filter>Util</Filter>
+      <Filter>10. Util\Vec2</Filter>
+    </ClCompile>
+    <ClCompile Include="CSingleton.cpp">
+      <Filter>10. Util\Singleton</Filter>
+    </ClCompile>
+    <ClCompile Include="CResource.cpp">
+      <Filter>1. Engine\ResourceManager</Filter>
+    </ClCompile>
+    <ClCompile Include="CGameObject.cpp">
+      <Filter>4. Object</Filter>
+    </ClCompile>
+    <ClCompile Include="CTexture.cpp">
+      <Filter>1. Engine\ResourceManager\Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="CScene.cpp">
+      <Filter>2. Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="CKeyManager.cpp">
+      <Filter>1. Engine\KeyManager</Filter>
+    </ClCompile>
+    <ClCompile Include="CPlayer.cpp">
+      <Filter>4. Object</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

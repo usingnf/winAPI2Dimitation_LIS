@@ -6,7 +6,10 @@ public:												\
 	{												\
 		static type _instance;						\
 		return &_instance;							\
-	}																				    								
+	}												\
+private:											\
+	type();											\
+	~type();										
 
 
 // ΩÃ±€≈Ê ≈¨∑°Ω∫ ¡§¿«
