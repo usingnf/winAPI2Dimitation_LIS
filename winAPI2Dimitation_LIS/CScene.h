@@ -34,7 +34,7 @@ public:
 	virtual void Enter() = 0;
 	virtual void Exit() = 0;
 
-	void ClearObject();
+	void clearObject();
 
 };
 

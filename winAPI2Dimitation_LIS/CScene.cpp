@@ -38,10 +38,14 @@ void CScene::AddObject(CGameObject* pObj, Group_GameObj type)
 	m_arrObj[(UINT)type].push_back(pObj);
 }
 
-void CScene::ClearObject()
+void CScene::clearObject()
 {
 	for (int i = 0; i < (UINT)Group_GameObj::Size; i++)
 	{
-
+		while (!m_arrObj[i].empty())
+		{
+			delete m_arrObj[i][m_arrObj[i].size() - 1];
+			m_arrObj[i].pop_back();
+		}
 	}
 }
