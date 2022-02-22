@@ -67,6 +67,9 @@
     <Filter Include="1. Engine\ResourceManager\Sound">
       <UniqueIdentifier>{b8622eb2-bf31-439f-ae91-44092656035c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="1. Engine\SceneManager">
+      <UniqueIdentifier>{a63440cf-50a7-4e42-abfd-efd41ca570fb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -117,6 +120,12 @@
     <ClInclude Include="CPlayer.h">
       <Filter>4. Object</Filter>
     </ClInclude>
+    <ClInclude Include="CSceneManager.h">
+      <Filter>1. Engine\SceneManager</Filter>
+    </ClInclude>
+    <ClInclude Include="CScene_Start.h">
+      <Filter>2. Scene</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="winAPI2Dimitation_LIS.cpp">
@@ -154,6 +163,12 @@
     </ClCompile>
     <ClCompile Include="CPlayer.cpp">
       <Filter>4. Object</Filter>
+    </ClCompile>
+    <ClCompile Include="CSceneManager.cpp">
+      <Filter>1. Engine\SceneManager</Filter>
+    </ClCompile>
+    <ClCompile Include="CScene_Start.cpp">
+      <Filter>2. Scene</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

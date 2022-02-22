@@ -15,7 +15,11 @@ void CPlayer::update()
 	}
 }
 
-void CPlayer::render()
+void CPlayer::render(HDC& hDC)
 {
-
+	Ellipse(hDC,
+		pos.x - (scale.x / 2),
+		pos.y - (scale.y / 2),
+		pos.x + (scale.x / 2),
+		pos.y + (scale.y / 2));
 }

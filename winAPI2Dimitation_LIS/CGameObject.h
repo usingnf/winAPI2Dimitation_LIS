@@ -8,8 +8,8 @@ class CGameObject
 {
 protected:
 	Vec2 pos;
-	Vec2 angle;
-	double scale;
+	double angle;
+	Vec2 scale;
 	Texture* texture;
 	CCollider* collider;
 	CAnimator* animator;
@@ -20,15 +20,15 @@ protected:
 
 public:
 	CGameObject();
-	~CGameObject();
+	virtual ~CGameObject();
 
 	virtual void update();
 	virtual void render(HDC& hDC);
 
 	void setPos(Vec2 vec);
-	void setScale(double scale);
+	void setScale(Vec2 scale);
 
 	Vec2 getPos();
-	double getScale();
+	Vec2 getScale();
 };
 

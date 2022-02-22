@@ -18,10 +18,10 @@ void CGameObject::update()
 void CGameObject::render(HDC& hDC)
 {
 	Rectangle(hDC, 
-		pos.x - (scale / 2), 
-		pos.y - (scale / 2), 
-		pos.x + (scale / 2), 
-		pos.y + (scale / 2));
+		pos.x - (scale.x / 2), 
+		pos.y - (scale.y / 2), 
+		pos.x + (scale.x / 2), 
+		pos.y + (scale.y / 2));
 }
 
 void CGameObject::setPos(Vec2 vec)
@@ -29,7 +29,7 @@ void CGameObject::setPos(Vec2 vec)
 	this->pos = vec;
 }
 
-void CGameObject::setScale(double scale)
+void CGameObject::setScale(Vec2 scale)
 {
 	this->scale = scale;
 }
@@ -39,7 +39,7 @@ Vec2 CGameObject::getPos()
 	return pos;
 }
 
-double CGameObject::getScale()
+Vec2 CGameObject::getScale()
 {
 	return scale;
 }

@@ -1,21 +1,12 @@
 #pragma once
-#include <string>
-using std::string;
-using std::wstring;
-
-enum class SceneCategory
-{
-	Default,
-	Start,
-	End
-};
 
 enum class GROUP_GAMEOBJ
 {
-	NONE,
+	Default,
 	MISSILE,
 	MONSTER,
 	PLAYER,
+
 	SIZE,
 };
 
@@ -25,18 +16,20 @@ class CScene
 {
 private:
 	std::vector<CGameObject*> m_arrObj[(UINT)GROUP_GAMEOBJ::SIZE];
-	CScene* currentScene;
-	wstring strName;
+	std::wstring strName;
 
 public:
 	CScene();
-	~CScene();
+	virtual ~CScene();
 
-	virtual void update();
-	virtual void render(HDC& hDC);
-
-	void setName(wstring name);
-	wstring getName();
+	
+	std::vector<CGameObject*>* getArrObj();
+	void setName(std::wstring name);
+	std::wstring getName();
 	void AddObject(CGameObject* pObj, GROUP_GAMEOBJ type);
+
+	virtual void update() = 0;
+	virtual void render(HDC& hDC) = 0;
+
 };
 

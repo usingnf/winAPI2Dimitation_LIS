@@ -153,6 +153,8 @@
     <ClInclude Include="CPlayer.h" />
     <ClInclude Include="CResource.h" />
     <ClInclude Include="CScene.h" />
+    <ClInclude Include="CSceneManager.h" />
+    <ClInclude Include="CScene_Start.h" />
     <ClInclude Include="CSingleton.h" />
     <ClInclude Include="CTexture.h" />
     <ClInclude Include="CTimeManager.h" />
@@ -171,6 +173,8 @@
     <ClCompile Include="CPlayer.cpp" />
     <ClCompile Include="CResource.cpp" />
     <ClCompile Include="CScene.cpp" />
+    <ClCompile Include="CSceneManager.cpp" />
+    <ClCompile Include="CScene_Start.cpp" />
     <ClCompile Include="CSingleton.cpp" />
     <ClCompile Include="CTexture.cpp" />
     <ClCompile Include="CTimeManager.cpp" />

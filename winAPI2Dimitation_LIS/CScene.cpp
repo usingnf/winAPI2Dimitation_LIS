@@ -3,6 +3,7 @@
 
 CScene::CScene()
 {
+	strName = L"Noname";
 }
 
 CScene::~CScene()
@@ -17,34 +18,17 @@ CScene::~CScene()
 	}
 }
 
-void CScene::update()
+std::vector<CGameObject*>* CScene::getArrObj()
 {
-	for (int i = 0; i < (UINT)GROUP_GAMEOBJ::SIZE; i++)
-	{
-		for (int j = 0; j < m_arrObj[i].size(); j++)
-		{
-			m_arrObj[i][j]->update();
-		}
-	}
+	return m_arrObj;
 }
 
-void CScene::render(HDC& hDC)
-{
-	for (int i = 0; i < (UINT)GROUP_GAMEOBJ::SIZE; i++)
-	{
-		for (int j = 0; j < m_arrObj[i].size(); j++)
-		{
-			m_arrObj[i][j]->render(hDC);
-		}
-	}
-}
-
-void CScene::setName(wstring name)
+void CScene::setName(std::wstring name)
 {
 	this->strName = name;
 }
 
-wstring CScene::getName()
+std::wstring CScene::getName()
 {
 	return strName;
 }
