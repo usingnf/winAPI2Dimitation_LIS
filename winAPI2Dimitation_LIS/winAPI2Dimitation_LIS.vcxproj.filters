@@ -126,6 +126,9 @@
     <ClInclude Include="CScene_Start.h">
       <Filter>2. Scene</Filter>
     </ClInclude>
+    <ClInclude Include="CScene_Stage01.h">
+      <Filter>2. Scene</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="winAPI2Dimitation_LIS.cpp">
@@ -168,6 +171,9 @@
       <Filter>1. Engine\SceneManager</Filter>
     </ClCompile>
     <ClCompile Include="CScene_Start.cpp">
+      <Filter>2. Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="CScene_Stage01.cpp">
       <Filter>2. Scene</Filter>
     </ClCompile>
   </ItemGroup>

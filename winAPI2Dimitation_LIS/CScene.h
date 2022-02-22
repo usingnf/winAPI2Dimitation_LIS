@@ -1,13 +1,13 @@
 #pragma once
 
-enum class GROUP_GAMEOBJ
+enum class Group_GameObj
 {
 	Default,
-	MISSILE,
-	MONSTER,
-	PLAYER,
+	Missle,
+	Monster,
+	Player,
 
-	SIZE,
+	Size,
 };
 
 class CGameObject;
@@ -15,21 +15,26 @@ class CGameObject;
 class CScene
 {
 private:
-	std::vector<CGameObject*> m_arrObj[(UINT)GROUP_GAMEOBJ::SIZE];
-	std::wstring strName;
+	vector<CGameObject*> m_arrObj[(UINT)Group_GameObj::Size];
+	wstring strName;
 
 public:
 	CScene();
 	virtual ~CScene();
 
 	
-	std::vector<CGameObject*>* getArrObj();
+	vector<CGameObject*>* getArrObj();
 	void setName(std::wstring name);
-	std::wstring getName();
-	void AddObject(CGameObject* pObj, GROUP_GAMEOBJ type);
+	wstring getName();
+	void AddObject(CGameObject* pObj, Group_GameObj type);
 
 	virtual void update() = 0;
 	virtual void render(HDC& hDC) = 0;
+
+	virtual void Enter() = 0;
+	virtual void Exit() = 0;
+
+	void ClearObject();
 
 };
 

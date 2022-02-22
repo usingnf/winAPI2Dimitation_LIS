@@ -8,6 +8,9 @@
 #include <map>
 #include <chrono>
 
+using std::vector;
+using std::wstring;
+
 #include "Vec2.h"
 #include "logger.h"
 #include "CCore.h"

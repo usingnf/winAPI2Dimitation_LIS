@@ -8,7 +8,7 @@ CScene::CScene()
 
 CScene::~CScene()
 {
-	for (int i = 0; i < (UINT)GROUP_GAMEOBJ::SIZE; i++)
+	for (int i = 0; i < (UINT)Group_GameObj::Size; i++)
 	{
 		for (int j = 0; j < m_arrObj[i].size(); j++)
 		{
@@ -18,22 +18,30 @@ CScene::~CScene()
 	}
 }
 
-std::vector<CGameObject*>* CScene::getArrObj()
+vector<CGameObject*>* CScene::getArrObj()
 {
 	return m_arrObj;
 }
 
-void CScene::setName(std::wstring name)
+void CScene::setName(wstring name)
 {
 	this->strName = name;
 }
 
-std::wstring CScene::getName()
+wstring CScene::getName()
 {
 	return strName;
 }
 
-void CScene::AddObject(CGameObject* pObj, GROUP_GAMEOBJ type)
+void CScene::AddObject(CGameObject* pObj, Group_GameObj type)
 {
 	m_arrObj[(UINT)type].push_back(pObj);
+}
+
+void CScene::ClearObject()
+{
+	for (int i = 0; i < (UINT)Group_GameObj::Size; i++)
+	{
+
+	}
 }

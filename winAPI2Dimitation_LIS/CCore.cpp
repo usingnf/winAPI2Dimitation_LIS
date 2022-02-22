@@ -58,11 +58,6 @@ void CCore::update()
 	//		angle.y += -rand() % 4;
 	//}
 	//normalize(angle);
-
-	WCHAR strFPS[7];
-	swprintf_s(strFPS, L"%d", CTimeManager::getInstance()->getFPS());
-	TextOutW(m_hMemDC, WS_WIDTH - 100, 10, strFPS, 6);
-	
 }
 
 void CCore::render()
@@ -71,6 +66,11 @@ void CCore::render()
 	Rectangle(m_hMemDC, -1, -1, WS_WIDTH + 1, WS_HEIGHT + 1);
 	//scene의 오브젝트 출력
 	CSceneManager::getInstance()->render(m_hMemDC);
+
+	//frame 출력
+	WCHAR strFPS[7];
+	swprintf_s(strFPS, L"%d", CTimeManager::getInstance()->getFPS());
+	TextOutW(m_hMemDC, WS_WIDTH - 100, 10, strFPS, 6);
 
 	//MemDC로 그린 BMP를 복사하여 윈도우 창으로 옮기기
 	BitBlt(m_hDC, 0, 0, WS_WIDTH, WS_HEIGHT, m_hMemDC, 0, 0, SRCCOPY);

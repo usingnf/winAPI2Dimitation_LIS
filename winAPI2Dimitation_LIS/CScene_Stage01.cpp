@@ -1,16 +1,16 @@
 #include "pch.h"
-#include "CScene_Start.h"
+#include "CScene_Stage01.h"
 
-CScene_Start::CScene_Start()
+
+CScene_Stage01::CScene_Stage01()
 {
 }
 
-CScene_Start::~CScene_Start()
+CScene_Stage01::~CScene_Stage01()
 {
-
 }
 
-void CScene_Start::update()
+void CScene_Stage01::update()
 {
 	for (int i = 0; i < (UINT)Group_GameObj::Size; i++)
 	{
@@ -21,7 +21,7 @@ void CScene_Start::update()
 	}
 }
 
-void CScene_Start::render(HDC& hDC)
+void CScene_Stage01::render(HDC& hDC)
 {
 	for (int i = 0; i < (UINT)Group_GameObj::Size; i++)
 	{
@@ -32,12 +32,12 @@ void CScene_Start::render(HDC& hDC)
 	}
 }
 
-void CScene_Start::Enter()
+void CScene_Stage01::Enter()
 {
 
 }
 
-void CScene_Start::Exit()
+void CScene_Stage01::Exit()
 {
 
 }
