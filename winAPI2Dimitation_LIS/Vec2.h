@@ -25,7 +25,7 @@ public:
 	static double getAngle(Vec2 left, Vec2 right);
 };
 
-void normalize(Vec2& vec);
-double distance(Vec2 left, Vec2 right);
-double getAngle(Vec2 vec);
-double getAngle(Vec2 left, Vec2 right);
+//void normalize(Vec2& vec);
+//double distance(Vec2 left, Vec2 right);
+//double getAngle(Vec2 vec);
+//double getAngle(Vec2 left, Vec2 right);

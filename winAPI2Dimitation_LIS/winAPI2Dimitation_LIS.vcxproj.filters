@@ -135,6 +135,15 @@
     <ClInclude Include="CMissile.h">
       <Filter>4. Object</Filter>
     </ClInclude>
+    <ClInclude Include="CPlayer_Right.h">
+      <Filter>4. Object</Filter>
+    </ClInclude>
+    <ClInclude Include="CBall.h">
+      <Filter>4. Object</Filter>
+    </ClInclude>
+    <ClInclude Include="CText.h">
+      <Filter>4. Object</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="winAPI2Dimitation_LIS.cpp">
@@ -186,6 +195,15 @@
       <Filter>4. Object</Filter>
     </ClCompile>
     <ClCompile Include="CMissile.cpp">
+      <Filter>4. Object</Filter>
+    </ClCompile>
+    <ClCompile Include="CPlayer_Right.cpp">
+      <Filter>4. Object</Filter>
+    </ClCompile>
+    <ClCompile Include="CBall.cpp">
+      <Filter>4. Object</Filter>
+    </ClCompile>
+    <ClCompile Include="CText.cpp">
       <Filter>4. Object</Filter>
     </ClCompile>
   </ItemGroup>

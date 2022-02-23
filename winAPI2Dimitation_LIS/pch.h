@@ -11,15 +11,24 @@
 using std::vector;
 using std::wstring;
 
+enum class Group_GameObj
+{
+	Default,
+	Missile,
+	Monster,
+	Player,
+
+	Size,
+};
+
 #include "Vec2.h"
 #include "logger.h"
 #include "CCore.h"
 #include "CSingleton.h"
 #include "CTimeManager.h"
 #include "CKeyManager.h"
-#include "CSceneManager.h"
 #include "CGameObject.h"
-
+#include "CSceneManager.h"
 
 #define WS_MYSTYLE WS_CAPTION | WS_SYSMENU | WS_MINIMIZEBOX
 #define WS_WIDTH 1280
@@ -35,3 +44,13 @@ using std::wstring;
 
 extern HINSTANCE hInst;
 extern HWND hWnd;
+
+class CPlayer;
+class CPlayer_Right;
+class CBall;
+extern CPlayer* leftPlayer;
+extern CPlayer_Right* rightPlayer;
+extern CBall* ball;
+//CPlayer* leftPlayer = new CPlayer();
+//CPlayer_Right* rightPlayer = nullptr;
+//CBall* ball = nullptr;

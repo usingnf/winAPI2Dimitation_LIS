@@ -1,14 +1,6 @@
 #pragma once
 
-enum class Group_GameObj
-{
-	Default,
-	Missile,
-	Monster,
-	Player,
 
-	Size,
-};
 
 class CGameObject;
 
