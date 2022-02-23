@@ -39,7 +39,12 @@ void CSceneManager::init()
 
 	CText* text = new CText();
 	text->setText(L"R키를 눌러서 시작");
+	text->setPos(Vec2(WS_WIDTH / 2, WS_HEIGHT / 2));
 	arrScene[(UINT)Group_Scene::Start]->AddObject(text, Group_GameObj::Default);
+	CText* text2 = new CText();
+	text2->setPos(Vec2(WS_WIDTH / 2, (WS_HEIGHT / 2) + 30));
+	text2->setText(L"키:W/S/↑/↓");
+	arrScene[(UINT)Group_Scene::Start]->AddObject(text2, Group_GameObj::Default);
 
 	arrScene[(UINT)Group_Scene::Stage_01] = new CScene_Stage01();
 	arrScene[(UINT)Group_Scene::Start]->setName(L"Start_Stage_01");

@@ -18,8 +18,7 @@ void CText::update()
 
 void CText::render(HDC& hDC)
 {
-	TextOutW(hDC, WS_WIDTH / 2, WS_HEIGHT / 2, mtext, sizeof(mtext) / sizeof(WCHAR));
-	//TextOut(hDC, 5, 5, szText, lstrlen(szText));
+	TextOutW(hDC, pos.x, pos.y, mtext, sizeof(mtext) / sizeof(WCHAR));
 }
 
 void CText::setText(const WCHAR* text)

@@ -32,7 +32,7 @@ void CPlayer::update()
 
 	if (KEY(VK_SPACE) == (UINT)Key_State::Tap)
 	{
-		CreateMissile();
+		//CreateMissile();
 	}
 }
 
