@@ -3,11 +3,27 @@
 
 CGameObject::CGameObject()
 {
+	parent = nullptr;
+	pos = Vec2(0,0);
+	angle = 0;
+	scale = Vec2(0,0);
+	texture = nullptr;
+	collider = nullptr;
+	animator = nullptr;
 
+	speed = 100;
+	hp = 100;
+	isDead = false;
 }
 
 CGameObject::~CGameObject()
 {
+	if(nullptr != texture)
+		delete texture;
+	if (nullptr != collider)
+		delete collider;
+	if (nullptr != animator)
+		delete animator;
 }
 
 void CGameObject::update()

@@ -19,6 +19,11 @@ void CScene_Start::update()
 			getArrObj()[i][j]->update();
 		}
 	}
+
+	if (KEY('R') == (UINT)Key_State::Tap)
+	{
+		CSceneManager::getInstance()->changeScene(Group_Scene::Stage_01);
+	}
 }
 
 void CScene_Start::render(HDC& hDC)

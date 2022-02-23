@@ -38,6 +38,28 @@ void CScene::AddObject(CGameObject* pObj, Group_GameObj type)
 	m_arrObj[(UINT)type].push_back(pObj);
 }
 
+void CScene::update()
+{
+	for (int i = 0; i < (UINT)Group_GameObj::Size; i++)
+	{
+		for (int j = 0; j < getArrObj()[i].size(); j++)
+		{
+			getArrObj()[i][j]->update();
+		}
+	}
+}
+
+void CScene::render(HDC& hDC)
+{
+	for (int i = 0; i < (UINT)Group_GameObj::Size; i++)
+	{
+		for (int j = 0; j < getArrObj()[i].size(); j++)
+		{
+			getArrObj()[i][j]->render(hDC);
+		}
+	}
+}
+
 void CScene::clearObject()
 {
 	for (int i = 0; i < (UINT)Group_GameObj::Size; i++)

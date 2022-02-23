@@ -129,6 +129,12 @@
     <ClInclude Include="CScene_Stage01.h">
       <Filter>2. Scene</Filter>
     </ClInclude>
+    <ClInclude Include="CMonster.h">
+      <Filter>4. Object</Filter>
+    </ClInclude>
+    <ClInclude Include="CMissile.h">
+      <Filter>4. Object</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="winAPI2Dimitation_LIS.cpp">
@@ -175,6 +181,12 @@
     </ClCompile>
     <ClCompile Include="CScene_Stage01.cpp">
       <Filter>2. Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="CMonster.cpp">
+      <Filter>4. Object</Filter>
+    </ClCompile>
+    <ClCompile Include="CMissile.cpp">
+      <Filter>4. Object</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

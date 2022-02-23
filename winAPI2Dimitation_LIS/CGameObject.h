@@ -7,6 +7,7 @@ class Texture;
 class CGameObject
 {
 protected:
+	CGameObject* parent;
 	Vec2 pos;
 	double angle;
 	Vec2 scale;

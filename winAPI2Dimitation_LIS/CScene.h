@@ -3,7 +3,7 @@
 enum class Group_GameObj
 {
 	Default,
-	Missle,
+	Missile,
 	Monster,
 	Player,
 
@@ -28,12 +28,13 @@ public:
 	wstring getName();
 	void AddObject(CGameObject* pObj, Group_GameObj type);
 
-	virtual void update() = 0;
-	virtual void render(HDC& hDC) = 0;
+	virtual void update();
+	virtual void render(HDC& hDC);
 
 	virtual void Enter() = 0;
 	virtual void Exit() = 0;
 
+protected:
 	void clearObject();
 
 };

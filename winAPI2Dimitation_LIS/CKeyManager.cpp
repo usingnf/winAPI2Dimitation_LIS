@@ -7,7 +7,7 @@ CKeyManager::CKeyManager()
 	for (int i = 0; i < VK_SIZE; i++)
 	{
 		m_arrPrevKey[i] = false;
-		m_arrCurKey[i] = (UINT)KEY_STATE::NONE;
+		m_arrCurKey[i] = (UINT)Key_State::None;
 	}
 }
 
@@ -26,10 +26,10 @@ void CKeyManager::update()
 		{
 			if (m_arrPrevKey[i] == true)
 			{
-				m_arrCurKey[i] = (UINT)KEY_STATE::OFF;
+				m_arrCurKey[i] = (UINT)Key_State::Off;
 			}
 			m_arrPrevKey[i] = false;
-			m_arrCurKey[i] = (UINT)KEY_STATE::NONE;
+			m_arrCurKey[i] = (UINT)Key_State::None;
 		}
 		
 		return;
@@ -42,11 +42,11 @@ void CKeyManager::update()
 		{
 			if (m_arrPrevKey[i] == true)
 			{
-				m_arrCurKey[i] = (UINT)KEY_STATE::HOLD;
+				m_arrCurKey[i] = (UINT)Key_State::Hold;
 			}
 			else
 			{
-				m_arrCurKey[i] = (UINT)KEY_STATE::TAP;
+				m_arrCurKey[i] = (UINT)Key_State::Tap;
 			}
 			m_arrPrevKey[i] = true;
 		}
@@ -54,11 +54,11 @@ void CKeyManager::update()
 		{
 			if (m_arrPrevKey[i] == true)
 			{
-				m_arrCurKey[i] = (UINT)KEY_STATE::OFF;
+				m_arrCurKey[i] = (UINT)Key_State::Off;
 			}
 			else
 			{
-				m_arrCurKey[i] = (UINT)KEY_STATE::NONE;
+				m_arrCurKey[i] = (UINT)Key_State::None;
 			}
 			m_arrPrevKey[i] = false;
 		}

@@ -1,12 +1,12 @@
 #pragma once
 #define VK_SIZE 255
 
-enum class KEY_STATE
+enum class Key_State
 {
-	NONE,
-	TAP,
-	HOLD,
-	OFF,
+	None,
+	Tap,
+	Hold,
+	Off,
 };
 
 

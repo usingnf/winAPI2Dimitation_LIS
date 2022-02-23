@@ -3,6 +3,7 @@
 #include "CScene_Start.h"
 #include "CScene_Stage01.h"
 #include "CPlayer.h"
+#include "CMonster.h"
 
 CSceneManager::CSceneManager()
 {
@@ -29,11 +30,9 @@ void CSceneManager::init()
 
 	CPlayer* leftP = new CPlayer();
 	leftP->setPos(Vec2(0, WS_HEIGHT / 2));
-	leftP->setScale(Vec2(50, 50));
 	arrScene[(UINT)Group_Scene::Start]->AddObject(leftP, Group_GameObj::Default);
 	CPlayer* rightP = new CPlayer();
 	rightP->setPos(Vec2(WS_WIDTH, WS_HEIGHT / 2));
-	rightP->setScale(Vec2(50, 50));
 	arrScene[(UINT)Group_Scene::Start]->AddObject(rightP, Group_GameObj::Default);
 	CGameObject* ballP = new CGameObject();
 	ballP->setPos(Vec2(WS_WIDTH / 2, WS_HEIGHT / 2));
@@ -56,6 +55,10 @@ void CSceneManager::init()
 	ballP2->setScale(Vec2(50, 50));
 	arrScene[(UINT)Group_Scene::Stage_01]->AddObject(ballP2, Group_GameObj::Default);
 
+	CMonster* monster = new CMonster();
+	monster->setPos(Vec2(WS_WIDTH / 2, WS_HEIGHT / 2));
+	arrScene[(UINT)Group_Scene::Start]->AddObject(monster, Group_GameObj::Default);
+
 
 	curScene = arrScene[(UINT)Group_Scene::Start];
 	curScene->Enter();
@@ -77,14 +80,6 @@ void CSceneManager::update()
 			curScene->getArrObj()[i][j]->update();
 		}
 	}*/
-	if (KEY('R') == (UINT)KEY_STATE::TAP)
-	{
-		changeScene(Group_Scene::Stage_01);
-	}
-	if (KEY('T') == (UINT)KEY_STATE::TAP)
-	{
-		changeScene(Group_Scene::Start);
-	}
 	curScene->update();
 }
 
@@ -98,4 +93,9 @@ void CSceneManager::render(HDC& hDC)
 		}
 	}*/
 	curScene->render(hDC);
+}
+
+CScene* CSceneManager::getCurScene()
+{
+	return curScene;
 }

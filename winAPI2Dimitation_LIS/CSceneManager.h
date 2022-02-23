@@ -27,6 +27,6 @@ public:
 	void changeScene(Group_Scene type);
 	void update();
 	void render(HDC& hDC);
-
+	CScene* getCurScene();
 };
 

@@ -30,6 +30,8 @@ using std::wstring;
 #define DT() CTimeManager::getInstance()->getDeltaTime()
 #define KEY(vk_key) CKeyManager::getInstance()->getButtonState(vk_key)
 
+#define PI 3.141592
+#define RADIAN (PI/180)
 
 extern HINSTANCE hInst;
 extern HWND hWnd;
