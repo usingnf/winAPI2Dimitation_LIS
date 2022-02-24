@@ -6,6 +6,10 @@ CGameObject::CGameObject()
 	pos = Vec2(0,0);
 	angle = 0;
 	scale = Vec2(0,0);
+	velocity = Vec2(0, 0);
+	gravity = 0;
+	drag = 0;
+
 	texture = nullptr;
 	collider = nullptr;
 	animator = nullptr;
@@ -58,3 +62,26 @@ Vec2 CGameObject::getScale()
 {
 	return scale;
 }
+
+double CGameObject::getAngle()
+{
+	return this->angle;
+}
+
+void CGameObject::addForce(Vec2 vec)
+{
+	this->velocity.x += vec.x;
+	this->velocity.y += vec.y;
+}
+
+
+void CGameObject::setAngle(double ang)
+{
+	this->angle = ang;
+}
+
+void CGameObject::setAngle(Vec2 vec)
+{
+	this->angle = Vec2::getAngle(vec);
+}
+

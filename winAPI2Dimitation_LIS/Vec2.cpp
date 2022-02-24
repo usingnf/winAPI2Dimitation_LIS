@@ -28,6 +28,18 @@
 //	return atan(-(right.y-left.y) / (right.x-left.x)) / RADIAN;
 //}
 
+Vec2& Vec2::normalized() 
+{
+	double temp = sqrt((this->x * this->x) + (this->y * this->y));
+	if (temp == 0)
+		return *this;
+	double x = this->x / temp;
+	double y = this->y / temp;
+	this->x = x;
+	this->y = y;
+	return *this;
+}
+
 void Vec2::normalize(Vec2& vec)
 {
 	double temp = sqrt((vec.x * vec.x) + (vec.y * vec.y));

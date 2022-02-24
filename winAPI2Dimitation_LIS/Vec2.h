@@ -18,11 +18,18 @@ public:
 		this->x = x;
 		this->y = y;
 	}
-
+	
+	Vec2& normalized();
 	static void normalize(Vec2& vec);
 	static double distance(Vec2 left, Vec2 right);
 	static double getAngle(Vec2 vec);
 	static double getAngle(Vec2 left, Vec2 right);
+	Vec2& operator=(const Vec2& vec)
+	{
+		this->x = vec.x;
+		this->y = vec.y;
+		return *this;
+	}
 };
 
 //void normalize(Vec2& vec);

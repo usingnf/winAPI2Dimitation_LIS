@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "CPlayer.h"
 #include "CMissile.h"
+#include "CMissile2.h"
 #include "CScene.h"
 
 CPlayer::CPlayer()
@@ -32,7 +33,7 @@ void CPlayer::update()
 
 	if (KEY(VK_SPACE) == (UINT)Key_State::Tap)
 	{
-		//CreateMissile();
+		CreateMissile2();
 	}
 }
 
@@ -57,4 +58,14 @@ void CPlayer::CreateMissile()
 	missile2->setPos(missilePos);
 	missile2->setAngle(Vec2::getAngle(Vec2(1, 1)));
 	CSceneManager::getInstance()->getCurScene()->AddObject(missile2, Group_GameObj::Missile);
+}
+
+void CPlayer::CreateMissile2()
+{
+	Vec2 missilePos = pos;
+	CMissile2* missile = new CMissile2();
+	missile->setPos(missilePos);
+	missile->addForce(Vec2(200, 200));
+	CSceneManager::getInstance()->getCurScene()->AddObject(missile, Group_GameObj::Missile);
+
 }

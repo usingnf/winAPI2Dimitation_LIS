@@ -11,5 +11,6 @@ public:
 	virtual void update();
 	virtual void render(HDC& hDC);
 	void CreateMissile();
+	void CreateMissile2();
 };
 

@@ -11,9 +11,14 @@ protected:
 	Vec2 pos;
 	double angle;
 	Vec2 scale;
+	Vec2 velocity;
+	double gravity;
+	double drag;
+
 	Texture* texture;
 	CCollider* collider;
 	CAnimator* animator;
+
 
 	double speed;
 	double hp;
@@ -27,9 +32,15 @@ public:
 	virtual void render(HDC& hDC);
 
 	void setPos(Vec2 vec);
-	void setScale(Vec2 scale);
-
 	Vec2 getPos();
+	
+	void setScale(Vec2 scale);
 	Vec2 getScale();
+
+	virtual void setAngle(double ang);
+	virtual void setAngle(Vec2 vec);
+	virtual double getAngle();
+
+	void addForce(Vec2 vec);
 };
 

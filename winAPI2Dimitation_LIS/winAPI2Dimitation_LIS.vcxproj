@@ -152,6 +152,7 @@
     <ClInclude Include="CKeyManager.h" />
     <ClInclude Include="CGameObject.h" />
     <ClInclude Include="CMissile.h" />
+    <ClInclude Include="CMissile2.h" />
     <ClInclude Include="CMonster.h" />
     <ClInclude Include="CPlayer.h" />
     <ClInclude Include="CPlayer_Right.h" />
@@ -178,6 +179,7 @@
     <ClCompile Include="CKeyManager.cpp" />
     <ClCompile Include="CGameObject.cpp" />
     <ClCompile Include="CMissile.cpp" />
+    <ClCompile Include="CMissile2.cpp" />
     <ClCompile Include="CMonster.cpp" />
     <ClCompile Include="CPlayer.cpp" />
     <ClCompile Include="CPlayer_Right.cpp" />

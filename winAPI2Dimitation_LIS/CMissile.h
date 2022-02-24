@@ -9,6 +9,5 @@ public:
 	~CMissile();
 	virtual void update();
 	virtual void render(HDC& hDC);
-	void setAngle(double ang);
 };
 

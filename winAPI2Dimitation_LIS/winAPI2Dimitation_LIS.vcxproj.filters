@@ -70,6 +70,9 @@
     <Filter Include="1. Engine\SceneManager">
       <UniqueIdentifier>{a63440cf-50a7-4e42-abfd-efd41ca570fb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="4. Object\GameObject">
+      <UniqueIdentifier>{70111968-f436-4b94-9bcd-837ea5889da4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -104,9 +107,6 @@
     </ClInclude>
     <ClInclude Include="CResource.h">
       <Filter>1. Engine\ResourceManager</Filter>
-    </ClInclude>
-    <ClInclude Include="CGameObject.h">
-      <Filter>4. Object</Filter>
     </ClInclude>
     <ClInclude Include="CTexture.h">
       <Filter>1. Engine\ResourceManager\Texture</Filter>
@@ -144,6 +144,12 @@
     <ClInclude Include="CText.h">
       <Filter>4. Object</Filter>
     </ClInclude>
+    <ClInclude Include="CMissile2.h">
+      <Filter>4. Object</Filter>
+    </ClInclude>
+    <ClInclude Include="CGameObject.h">
+      <Filter>4. Object\GameObject</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="winAPI2Dimitation_LIS.cpp">
@@ -166,9 +172,6 @@
     </ClCompile>
     <ClCompile Include="CResource.cpp">
       <Filter>1. Engine\ResourceManager</Filter>
-    </ClCompile>
-    <ClCompile Include="CGameObject.cpp">
-      <Filter>4. Object</Filter>
     </ClCompile>
     <ClCompile Include="CTexture.cpp">
       <Filter>1. Engine\ResourceManager\Texture</Filter>
@@ -205,6 +208,12 @@
     </ClCompile>
     <ClCompile Include="CText.cpp">
       <Filter>4. Object</Filter>
+    </ClCompile>
+    <ClCompile Include="CMissile2.cpp">
+      <Filter>4. Object</Filter>
+    </ClCompile>
+    <ClCompile Include="CGameObject.cpp">
+      <Filter>4. Object\GameObject</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

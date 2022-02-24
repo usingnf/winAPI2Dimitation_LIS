@@ -1,29 +1,30 @@
 #include "pch.h"
-#include "CMissile.h"
+#include "CMissile2.h"
 
-CMissile::CMissile()
+CMissile2::CMissile2()
 {
-	speed = mSpeed;
-	scale = mScale;
+	scale = Vec2(30, 30);
+	gravity = 100;
 }
 
-CMissile::~CMissile()
+CMissile2::~CMissile2()
 {
-
+	
 }
 
-void CMissile::update()
+void CMissile2::update()
 {
 	if (pos.x < 0 || pos.x > WS_WIDTH || pos.y < 0 || pos.y > WS_HEIGHT)
 	{
 		return;
 		//object 파괴 작업 필요.
 	}
-	pos.x += speed * DT() * cos(angle * RADIAN);
-	pos.y += speed * DT() * -sin(angle * RADIAN);
+	velocity.y += -gravity * DT();
+	pos.x += velocity.x * DT();
+	pos.y += -velocity.y * DT();
 }
 
-void CMissile::render(HDC& hDC)
+void CMissile2::render(HDC& hDC)
 {
 	Ellipse(hDC,
 		pos.x - (scale.x / 2),
