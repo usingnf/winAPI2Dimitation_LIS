@@ -1,6 +1,6 @@
 #include "pch.h"
 #include "Vec2.h"
-//
+//backup
 //void normalize(Vec2& vec)
 //{
 //	double temp = sqrt((vec.x* vec.x)+ (vec.y* vec.y));
