@@ -4,10 +4,13 @@
 #include "CMissile2.h"
 #include "CScene.h"
 
+
 CPlayer::CPlayer()
 {
 	speed = pSpeed;
 	scale = pScale;
+	
+	texture = CResourceManager::getInstance()->loadTexture(L"Player", L"Player.bmp");
 }
 
 CPlayer::~CPlayer()
@@ -39,11 +42,28 @@ void CPlayer::update()
 
 void CPlayer::render(HDC& hDC)
 {
-	Ellipse(hDC,
+
+	/*Ellipse(hDC,
 		pos.x - (scale.x / 2),
 		pos.y - (scale.y / 2),
 		pos.x + (scale.x / 2),
-		pos.y + (scale.y / 2));
+		pos.y + (scale.y / 2));*/
+
+	int width = texture->getBitmapWidth();
+	int height = texture->getBitmapHeight();
+
+	/*BitBlt(hDC, pos.x - (width / 2), pos.y - (height / 2), pos.x + (width / 2), pos.y + (height / 2)
+		,texture->getDC(), 0, 0, SRCCOPY );*/
+
+	TransparentBlt(hDC,
+		(int)(pos.x - (double)(width / 2)),
+		(int)(pos.y - (double)(height / 2)),
+		width, height,
+		texture->getDC(),
+		0, 0, width, height,
+		RGB(255, 0, 255));
+
+	//component_render(hDC);
 }
 
 void CPlayer::CreateMissile()

@@ -61,17 +61,29 @@
     <Filter Include="10. Util\Logger">
       <UniqueIdentifier>{4726a879-d116-40b0-9d9c-17297da0d123}</UniqueIdentifier>
     </Filter>
-    <Filter Include="1. Engine\ResourceManager\Texture">
-      <UniqueIdentifier>{ea547a25-39d0-479e-bd17-abac9d60b5b9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="1. Engine\ResourceManager\Sound">
-      <UniqueIdentifier>{b8622eb2-bf31-439f-ae91-44092656035c}</UniqueIdentifier>
-    </Filter>
     <Filter Include="1. Engine\SceneManager">
       <UniqueIdentifier>{a63440cf-50a7-4e42-abfd-efd41ca570fb}</UniqueIdentifier>
     </Filter>
     <Filter Include="4. Object\GameObject">
       <UniqueIdentifier>{70111968-f436-4b94-9bcd-837ea5889da4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="1. Engine\ResourceManager\Soundcpp">
+      <UniqueIdentifier>{b8622eb2-bf31-439f-ae91-44092656035c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="1. Engine\ResourceManager\Texturecpp">
+      <UniqueIdentifier>{ea547a25-39d0-479e-bd17-abac9d60b5b9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource">
+      <UniqueIdentifier>{d24a9ce8-8ac2-488e-b63c-a7497e425787}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource\Texture">
+      <UniqueIdentifier>{8f3728f3-15d8-4193-bdee-9c06c421df1e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource\Sound">
+      <UniqueIdentifier>{fd7b52d5-112a-45e5-b489-ae2e7be1b047}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="1. Engine\PathManager">
+      <UniqueIdentifier>{53475e73-add2-4540-9981-c084a9f1d4ef}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -109,7 +121,7 @@
       <Filter>1. Engine\ResourceManager</Filter>
     </ClInclude>
     <ClInclude Include="CTexture.h">
-      <Filter>1. Engine\ResourceManager\Texture</Filter>
+      <Filter>1. Engine\ResourceManager\Texturecpp</Filter>
     </ClInclude>
     <ClInclude Include="CScene.h">
       <Filter>2. Scene</Filter>
@@ -150,6 +162,12 @@
     <ClInclude Include="CGameObject.h">
       <Filter>4. Object\GameObject</Filter>
     </ClInclude>
+    <ClInclude Include="CPathManager.h">
+      <Filter>1. Engine\PathManager</Filter>
+    </ClInclude>
+    <ClInclude Include="CResourceManager.h">
+      <Filter>1. Engine\ResourceManager</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="winAPI2Dimitation_LIS.cpp">
@@ -174,7 +192,7 @@
       <Filter>1. Engine\ResourceManager</Filter>
     </ClCompile>
     <ClCompile Include="CTexture.cpp">
-      <Filter>1. Engine\ResourceManager\Texture</Filter>
+      <Filter>1. Engine\ResourceManager\Texturecpp</Filter>
     </ClCompile>
     <ClCompile Include="CScene.cpp">
       <Filter>2. Scene</Filter>
@@ -214,6 +232,12 @@
     </ClCompile>
     <ClCompile Include="CGameObject.cpp">
       <Filter>4. Object\GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="CPathManager.cpp">
+      <Filter>1. Engine\PathManager</Filter>
+    </ClCompile>
+    <ClCompile Include="CResourceManager.cpp">
+      <Filter>1. Engine\ResourceManager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

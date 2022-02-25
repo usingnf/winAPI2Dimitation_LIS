@@ -1,5 +1,7 @@
 #pragma once
 
+#include "CTexture.h"
+
 class CPlayer : public CGameObject
 {
 private:

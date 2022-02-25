@@ -21,8 +21,6 @@ CGameObject::CGameObject()
 
 CGameObject::~CGameObject()
 {
-	if(nullptr != texture)
-		delete texture;
 	if (nullptr != collider)
 		delete collider;
 	if (nullptr != animator)

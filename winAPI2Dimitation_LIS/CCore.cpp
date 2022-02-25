@@ -40,6 +40,8 @@ void CCore::render()
 
 void CCore::init()
 {
+	CPathManager::getInstance()->init();
+	//CResourceManager::getInstance()->init();
 	CTimeManager::getInstance()->init();
 	CKeyManager::getInstance()->init();
 	CSceneManager::getInstance()->init();
@@ -53,4 +55,9 @@ void CCore::init()
 	m_hBMP = CreateCompatibleBitmap(m_hDC, WS_WIDTH, WS_HEIGHT);
 	HBITMAP hOldBitmap = (HBITMAP)SelectObject(m_hMemDC, m_hBMP);
 	DeleteObject(hOldBitmap);
+}
+
+HDC CCore::getMainDC()
+{
+	return m_hMemDC;
 }

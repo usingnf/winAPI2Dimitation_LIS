@@ -2,7 +2,7 @@
 
 class CCollider;
 class CAnimator;
-class Texture;
+class CTexture;
 
 class CGameObject
 {
@@ -15,7 +15,7 @@ protected:
 	double gravity;
 	double drag;
 
-	Texture* texture;
+	CTexture* texture;
 	CCollider* collider;
 	CAnimator* animator;
 

@@ -9,6 +9,7 @@
 #include <chrono>
 
 using std::vector;
+using std::map;
 using std::wstring;
 
 enum class Group_GameObj
@@ -27,6 +28,8 @@ enum class Group_GameObj
 #include "CSingleton.h"
 #include "CTimeManager.h"
 #include "CKeyManager.h"
+#include "CPathManager.h"
+#include "CResourceManager.h"
 #include "CGameObject.h"
 #include "CSceneManager.h"
 
@@ -41,6 +44,8 @@ enum class Group_GameObj
 
 #define PI 3.141592
 #define RADIAN (PI/180)
+
+//#define MAXSIZE_PATH 255
 
 extern HINSTANCE hInst;
 extern HWND hWnd;
