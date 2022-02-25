@@ -18,6 +18,12 @@ public:
 		this->x = x;
 		this->y = y;
 	}
+
+	Vec2(const Vec2& vec)
+	{
+		this->x = vec.x;
+		this->y = vec.y;
+	}
 	
 	Vec2& normalized();
 	static void normalize(Vec2& vec);
