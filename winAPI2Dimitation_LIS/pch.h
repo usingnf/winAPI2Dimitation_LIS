@@ -1,7 +1,7 @@
 #pragma once
 
 #include "framework.h"
-// 기본 추가 기능
+// 기본 추가 기능 ver2
 #include <string>
 #include <vector>
 #include <list>
