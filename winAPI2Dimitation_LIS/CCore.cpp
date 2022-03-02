@@ -13,6 +13,12 @@ CCore::~CCore()
 	ReleaseDC(hWnd, m_hDC);
 	DeleteObject(m_hMemDC);
 	DeleteObject(m_hBMP);
+
+	for (int i = 0; i < (UINT)Group_Pen::Size; i++)
+	{
+		if(m_arrPen != 0)
+			DeleteObject(m_arrPen[i]);
+	}
 }
 
 void CCore::update()
@@ -20,6 +26,7 @@ void CCore::update()
 	CTimeManager::getInstance()->update();
 	CKeyManager::getInstance()->update();
 	CSceneManager::getInstance()->update();
+	CCollisionManager::getInstance()->update();
 }
 
 void CCore::render()
@@ -45,6 +52,7 @@ void CCore::init()
 	CTimeManager::getInstance()->init();
 	CKeyManager::getInstance()->init();
 	CSceneManager::getInstance()->init();
+	CCollisionManager::getInstance()->init();
 	
 	srand(time(0));
 
@@ -55,9 +63,32 @@ void CCore::init()
 	m_hBMP = CreateCompatibleBitmap(m_hDC, WS_WIDTH, WS_HEIGHT);
 	HBITMAP hOldBitmap = (HBITMAP)SelectObject(m_hMemDC, m_hBMP);
 	DeleteObject(hOldBitmap);
+
+	createBrushPen();
 }
 
 HDC CCore::getMainDC()
 {
-	return m_hMemDC;
+	return m_hDC;
+}
+
+void CCore::createBrushPen()
+{
+	m_arrBrush[(UINT)Group_Brush::Hollow] = (HBRUSH)GetStockObject(HOLLOW_BRUSH);
+
+	m_arrPen[(UINT)Group_Pen::Red] = CreatePen(PS_SOLID, 1, RGB(255, 0, 0));
+	m_arrPen[(UINT)Group_Pen::Blue] = CreatePen(PS_SOLID, 1, RGB(0, 0, 255));
+	m_arrPen[(UINT)Group_Pen::Green] = CreatePen(PS_SOLID, 1, RGB(0, 255, 0));
+	m_arrPen[(UINT)Group_Pen::White] = CreatePen(PS_SOLID, 1, RGB(0, 0, 0));
+	m_arrPen[(UINT)Group_Pen::Black] = CreatePen(PS_SOLID, 1, RGB(255, 255, 255));
+}
+
+HPEN CCore::getPen(Group_Pen pen)
+{
+	return m_arrPen[(UINT)pen];
+}
+
+HBRUSH CCore::getBrush(Group_Brush brush)
+{
+	return m_arrBrush[(UINT)brush];
 }

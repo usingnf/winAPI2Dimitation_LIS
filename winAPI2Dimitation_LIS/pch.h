@@ -22,22 +22,26 @@ enum class Group_GameObj
 	Size,
 };
 
+#define WS_MYSTYLE WS_CAPTION | WS_SYSMENU | WS_MINIMIZEBOX
+#define WS_WIDTH 1280
+#define WS_HEIGHT 720
+#define WS_STARTX 100
+#define WS_STARTY 100
+
 #include "Vec2.h"
 #include "logger.h"
+#include "SelectGDI.h"
 #include "CCore.h"
 #include "CSingleton.h"
 #include "CTimeManager.h"
 #include "CKeyManager.h"
 #include "CPathManager.h"
 #include "CResourceManager.h"
+#include "CCollisionManager.h"
 #include "CGameObject.h"
 #include "CSceneManager.h"
 
-#define WS_MYSTYLE WS_CAPTION | WS_SYSMENU | WS_MINIMIZEBOX
-#define WS_WIDTH 1280
-#define WS_HEIGHT 720
-#define WS_STARTX 100
-#define WS_STARTY 100
+
 
 #define DT() CTimeManager::getInstance()->getDeltaTime()
 #define KEY(vk_key) CKeyManager::getInstance()->getButtonState(vk_key)

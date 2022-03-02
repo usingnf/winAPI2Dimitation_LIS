@@ -1,10 +1,14 @@
 #include "pch.h"
 #include "CMissile.h"
+#include "CCollider.h"
 
 CMissile::CMissile()
 {
 	speed = mSpeed;
 	scale = mScale;
+
+	createCollider();
+	getCollider()->setColliderScale(Vec2(30, 30));
 }
 
 CMissile::~CMissile()
@@ -30,4 +34,6 @@ void CMissile::render(HDC& hDC)
 		pos.y - (scale.y / 2),
 		pos.x + (scale.x / 2),
 		pos.y + (scale.y / 2));
+
+	component_render(hDC);
 }

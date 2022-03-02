@@ -20,7 +20,10 @@ public:
 	wstring getName();
 	void AddObject(CGameObject* pObj, Group_GameObj type);
 
+	const vector<CGameObject*>& getGroupObject(Group_GameObj type);
+
 	virtual void update();
+	virtual void finalupdate();
 	virtual void render(HDC& hDC);
 
 	virtual void Enter() = 0;

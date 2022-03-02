@@ -2,7 +2,7 @@
 class CMissile : public CGameObject
 {
 private:
-	double mSpeed = 100;
+	double mSpeed = 200;
 	Vec2 mScale = Vec2(30,30);
 public:
 	CMissile();

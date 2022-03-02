@@ -29,8 +29,10 @@ public:
 	virtual ~CGameObject();
 
 	virtual void update();
+	virtual void finalupdate() final; // 오버라이딩 금지
 	virtual void render(HDC& hDC);
-
+	virtual void component_render(HDC& hDC);
+	
 	void setPos(Vec2 vec);
 	Vec2 getPos();
 	
@@ -40,6 +42,9 @@ public:
 	virtual void setAngle(double ang);
 	virtual void setAngle(Vec2 vec);
 	virtual double getAngle();
+
+	void createCollider();
+	CCollider* getCollider();
 
 	void addForce(Vec2 vec);
 };

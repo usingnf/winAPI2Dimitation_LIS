@@ -1,4 +1,5 @@
 #include "pch.h"
+#include "CCollider.h"
 
 CGameObject::CGameObject()
 {
@@ -32,6 +33,14 @@ void CGameObject::update()
 	
 }
 
+void CGameObject::finalupdate()
+{
+	if (collider != nullptr)
+	{
+		collider->finalupdate();
+	}
+}
+
 void CGameObject::render(HDC& hDC)
 {
 	Rectangle(hDC, 
@@ -39,6 +48,14 @@ void CGameObject::render(HDC& hDC)
 		pos.y - (scale.y / 2), 
 		pos.x + (scale.x / 2), 
 		pos.y + (scale.y / 2));
+
+	component_render(hDC);
+}
+
+void CGameObject::component_render(HDC& hDC)
+{
+	if(collider != nullptr)
+		collider->render(hDC);
 }
 
 void CGameObject::setPos(Vec2 vec)
@@ -64,6 +81,17 @@ Vec2 CGameObject::getScale()
 double CGameObject::getAngle()
 {
 	return this->angle;
+}
+
+void CGameObject::createCollider()
+{
+	collider = new CCollider();
+	collider->owner = this;
+}
+
+CCollider* CGameObject::getCollider()
+{
+	return collider;
 }
 
 void CGameObject::addForce(Vec2 vec)

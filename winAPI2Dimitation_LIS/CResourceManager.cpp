@@ -22,7 +22,7 @@ CResourceManager::~CResourceManager()
 CTexture* CResourceManager::findTexture(const wstring& name)
 {
 	return nullptr;
-	std::map<wstring, CTexture*>::iterator iter = textureData.find(name);
+	map<wstring, CTexture*>::iterator iter = textureData.find(name);
 	if (iter == textureData.end())
 		return nullptr;
 	return iter->second;

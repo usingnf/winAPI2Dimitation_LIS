@@ -40,17 +40,11 @@
     <Filter Include="3. Camera">
       <UniqueIdentifier>{6c711ecb-a44f-464f-803b-151ab39c4cfc}</UniqueIdentifier>
     </Filter>
-    <Filter Include="5. Collider">
-      <UniqueIdentifier>{186a7df6-b98b-4fdf-860c-71cef4e51de8}</UniqueIdentifier>
-    </Filter>
     <Filter Include="10. Util">
       <UniqueIdentifier>{2308ff56-ce55-4cfd-ac4a-7fe6e6e3c2e0}</UniqueIdentifier>
     </Filter>
     <Filter Include="4. Object">
       <UniqueIdentifier>{4a2fa5a7-a795-44d1-8d20-672a6447eee8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="6. Animator">
-      <UniqueIdentifier>{b8a656c4-aefa-4ec3-9c0c-746bc290275f}</UniqueIdentifier>
     </Filter>
     <Filter Include="10. Util\Vec2">
       <UniqueIdentifier>{efc32578-fc66-4f5a-8255-c7fb52ece995}</UniqueIdentifier>
@@ -73,17 +67,23 @@
     <Filter Include="1. Engine\ResourceManager\Texturecpp">
       <UniqueIdentifier>{ea547a25-39d0-479e-bd17-abac9d60b5b9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Resource">
-      <UniqueIdentifier>{d24a9ce8-8ac2-488e-b63c-a7497e425787}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Resource\Texture">
-      <UniqueIdentifier>{8f3728f3-15d8-4193-bdee-9c06c421df1e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Resource\Sound">
-      <UniqueIdentifier>{fd7b52d5-112a-45e5-b489-ae2e7be1b047}</UniqueIdentifier>
-    </Filter>
     <Filter Include="1. Engine\PathManager">
       <UniqueIdentifier>{53475e73-add2-4540-9981-c084a9f1d4ef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="5. Component">
+      <UniqueIdentifier>{186a7df6-b98b-4fdf-860c-71cef4e51de8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="5. Component\1. Collider">
+      <UniqueIdentifier>{6d6524ab-7847-4f07-9a3c-0fcbe7173f25}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="5. Component\2. Animator">
+      <UniqueIdentifier>{b8a656c4-aefa-4ec3-9c0c-746bc290275f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="10. Util\SelectGDI">
+      <UniqueIdentifier>{867d00fb-996f-4b8c-ae7d-99a45bd06deb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="1. Engine\CollisionManager">
+      <UniqueIdentifier>{d9aa4e4d-6308-4beb-9bf9-ec033c800a3d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -168,6 +168,15 @@
     <ClInclude Include="CResourceManager.h">
       <Filter>1. Engine\ResourceManager</Filter>
     </ClInclude>
+    <ClInclude Include="CCollider.h">
+      <Filter>5. Component\1. Collider</Filter>
+    </ClInclude>
+    <ClInclude Include="SelectGDI.h">
+      <Filter>10. Util\SelectGDI</Filter>
+    </ClInclude>
+    <ClInclude Include="CCollisionManager.h">
+      <Filter>1. Engine\CollisionManager</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="winAPI2Dimitation_LIS.cpp">
@@ -238,6 +247,12 @@
     </ClCompile>
     <ClCompile Include="CResourceManager.cpp">
       <Filter>1. Engine\ResourceManager</Filter>
+    </ClCompile>
+    <ClCompile Include="CCollider.cpp">
+      <Filter>5. Component\1. Collider</Filter>
+    </ClCompile>
+    <ClCompile Include="CCollisionManager.cpp">
+      <Filter>1. Engine\CollisionManager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

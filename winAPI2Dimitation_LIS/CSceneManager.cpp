@@ -54,7 +54,7 @@ void CSceneManager::init()
 	ball->setPos(Vec2(WS_WIDTH / 2, WS_HEIGHT / 2));
 
 	arrScene[(UINT)Group_Scene::Stage_01]->AddObject(leftPlayer, Group_GameObj::Default);
-	arrScene[(UINT)Group_Scene::Stage_01]->AddObject(rightPlayer, Group_GameObj::Default);
+	arrScene[(UINT)Group_Scene::Stage_01]->AddObject(rightPlayer, Group_GameObj::Monster);
 	arrScene[(UINT)Group_Scene::Stage_01]->AddObject(ball, Group_GameObj::Default);
 
 	curScene = arrScene[(UINT)Group_Scene::Start];
@@ -78,6 +78,7 @@ void CSceneManager::update()
 		}
 	}*/
 	curScene->update();
+	curScene->finalupdate();
 }
 
 void CSceneManager::render(HDC& hDC)

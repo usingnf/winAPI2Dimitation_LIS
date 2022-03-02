@@ -2,11 +2,15 @@
 #include "CPlayer_Right.h"
 #include "CMissile.h"
 #include "CScene.h"
+#include "CCollider.h"
 
 CPlayer_Right::CPlayer_Right()
 {
 	speed = pSpeed;
 	scale = pScale;
+
+	createCollider();
+	getCollider()->setColliderScale(Vec2(50, 50));
 }
 
 CPlayer_Right::~CPlayer_Right()
@@ -43,6 +47,8 @@ void CPlayer_Right::render(HDC& hDC)
 		pos.y - (scale.y / 2),
 		pos.x + (scale.x / 2),
 		pos.y + (scale.y / 2));
+
+	component_render(hDC);
 }
 
 void CPlayer_Right::CreateMissile()

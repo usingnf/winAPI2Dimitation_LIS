@@ -3,7 +3,6 @@
 
 CPathManager::CPathManager()
 {
-	//szContentPath[0] = L'1';
 	GetCurrentDirectory(MAXSIZE_PATH, szContentPath);
 	int size = wcslen(szContentPath);
 	for (int i = size - 1; i >= 0; i--)
@@ -25,8 +24,6 @@ CPathManager::~CPathManager()
 void CPathManager::init()
 {
 
-	Logger::debug(szContentPath);
-	//C:\Users\chin_\source\repos\winAPI2Dimitation_LIS\winAPI2Dimitation_LIS
 }
 
 const WCHAR* CPathManager::getContentPath()
