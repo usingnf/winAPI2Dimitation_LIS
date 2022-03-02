@@ -9,6 +9,7 @@ CCollider::CCollider()
 	offSet = Vec2(0, 0);
 	colliderScale = Vec2(0, 0);
 	owner = nullptr;
+	collCount = 0;
 
 	ID = static_ID++;
 }
@@ -16,6 +17,8 @@ CCollider::CCollider()
 CCollider::CCollider(CGameObject* obj)
 {
 	this->owner = obj;
+	ID = static_ID++;
+	collCount = 0;
 }
 
 CCollider::CCollider(const CCollider& other)
@@ -25,6 +28,7 @@ CCollider::CCollider(const CCollider& other)
 	colliderPos = other.colliderPos;
 	colliderScale = other.colliderScale;
 	ID = static_ID;
+	collCount = other.collCount;
 }
 
 CCollider::~CCollider()
@@ -47,8 +51,14 @@ void CCollider::render(HDC& hDC)
 	HPEN hOldPen = (HPEN)SelectObject(hDC, hGreenPen);
 	HBRUSH hOldBrush = (HBRUSH)SelectObject(hDC, hHollowBrush);*/
 
+	Group_Pen pType;
+	if (collCount)
+		pType = Group_Pen::Red;
+	else
+		pType = Group_Pen::Green;
+
 	SelectGDI brush(hDC, Group_Brush::Hollow);
-	SelectGDI pen(hDC, Group_Pen::Green);
+	SelectGDI pen(hDC, pType);
 
 	Rectangle(hDC,
 		colliderPos.x - (colliderScale.x / 2),
@@ -103,13 +113,17 @@ UINT CCollider::getID()
 
 void CCollider::onCollisionEnter(CCollider* other)
 {
-	Logger::debug(L"Enter");
+	owner->onCollisionEnter(other);
+	collCount++;
 }
 
 void CCollider::onCollisionStay(CCollider* other)
 {
+	owner->onCollisionStay(other);
 }
 
 void CCollider::onCollisionExit(CCollider* other)
 {
+	owner->onCollisionExit(other);
+	collCount--;
 }

@@ -47,34 +47,35 @@ void CCollisionManager::collisionGroupUpdate(Group_GameObj left, Group_GameObj r
 				// 계속 충돌 하는중
 				if (iter->second)
 				{
-					vecLeft[i]->getCollider()->onCollisionStay(vecRight[j]->getCollider());
-					vecRight[j]->getCollider()->onCollisionStay(vecLeft[i]->getCollider());
-					/*if (vecLeft[i]->isDead() || vecRight[j]->isDead())
+					
+					if (vecLeft[i]->getIsDelete() || vecRight[j]->getIsDelete())
 					{
-						vecLeft[i]->collisionExit(vecRight[j]->getCollider());
-						vecRight[j]->collisionExit(vecLeft[i]->getCollider());
+						vecLeft[i]->getCollider()->onCollisionExit(vecRight[j]->getCollider());
+						vecRight[j]->getCollider()->onCollisionExit(vecLeft[i]->getCollider());
 						iter->second = false;
 					}
 					else
 					{
-						//vecLeft[i]->getCollider()->getOwner()->collisionStay();
-					}*/
+						vecLeft[i]->getCollider()->onCollisionStay(vecRight[j]->getCollider());
+						vecRight[j]->getCollider()->onCollisionStay(vecLeft[i]->getCollider());
+						iter->second = true;
+					}
 				}
 				// 충돌 시작
 				else
 				{
-					vecLeft[i]->getCollider()->onCollisionEnter(vecRight[j]->getCollider());
-					vecRight[j]->getCollider()->onCollisionEnter(vecLeft[i]->getCollider());
-					iter->second = true;
-					/*if (vecLeft[i]->isDead() || vecRight[j]->isDead())
+					
+					if (vecLeft[i]->getIsDelete() || vecRight[j]->getIsDelete())
 					{
-						// 아무것도 하지 않음
+						//do nothing
+						iter->second = false;
 					}
 					else
 					{
-						//vecLeft[i]->getCollider()->getOwner()->collisionEnter();
-						//iter->second = true;
-					}*/
+						vecLeft[i]->getCollider()->onCollisionEnter(vecRight[j]->getCollider());
+						vecRight[j]->getCollider()->onCollisionEnter(vecLeft[i]->getCollider());
+						iter->second = true;
+					}
 					
 				}
 			}
@@ -86,11 +87,13 @@ void CCollisionManager::collisionGroupUpdate(Group_GameObj left, Group_GameObj r
 					vecRight[j]->getCollider()->onCollisionExit(vecLeft[i]->getCollider());
 					vecLeft[i]->getCollider()->onCollisionExit(vecRight[j]->getCollider());
 					iter->second = false;
+					
 				}
 				// 충돌 안하는중
 				else
 				{
 					//Do Nothing
+					iter->second = false;
 				}
 			}
 		}
@@ -99,6 +102,15 @@ void CCollisionManager::collisionGroupUpdate(Group_GameObj left, Group_GameObj r
 
 bool CCollisionManager::isCollision(CCollider* left, CCollider* right)
 {
+	/*if (left->getOwner()->getIsDelete() == true)
+	{
+		return false;
+	}
+	if (right->getOwner()->getIsDelete() == true)
+	{
+		return false;
+	}*/
+
 	Vec2 leftPos = left->getColliderPos();
 	Vec2 leftScale = left->getColliderScale();
 

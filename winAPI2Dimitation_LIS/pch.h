@@ -34,10 +34,12 @@ enum class Group_GameObj
 #include "CCore.h"
 #include "CSingleton.h"
 #include "CTimeManager.h"
+
 #include "CKeyManager.h"
 #include "CPathManager.h"
 #include "CResourceManager.h"
 #include "CCollisionManager.h"
+#include "CEventManager.h"
 #include "CGameObject.h"
 #include "CSceneManager.h"
 
@@ -45,6 +47,8 @@ enum class Group_GameObj
 
 #define DT() CTimeManager::getInstance()->getDeltaTime()
 #define KEY(vk_key) CKeyManager::getInstance()->getButtonState(vk_key)
+#define CREATEOBJECT(obj, type) CEventManager::getInstance()->createGameObject(obj, type)
+#define DELETEOBJECT(obj) CEventManager::getInstance()->deleteGameObject(obj);
 
 #define PI 3.141592
 #define RADIAN (PI/180)

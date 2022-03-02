@@ -77,7 +77,9 @@ void CPlayer::CreateMissile()
 	CMissile* missile = new CMissile();
 	missile->setPos(missilePos);
 	missile->setAngle(Vec2::getAngle(Vec2(0,0), Vec2(1, 0)));
-	CSceneManager::getInstance()->getCurScene()->AddObject(missile, Group_GameObj::Missile);
+	
+	//CEventManager::getInstance()->createGameObject(missile);
+	CREATEOBJECT(missile, Group_GameObj::Missile);
 }
 
 void CPlayer::CreateMissile2()

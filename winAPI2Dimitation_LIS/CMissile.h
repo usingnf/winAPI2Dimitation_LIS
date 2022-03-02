@@ -2,12 +2,14 @@
 class CMissile : public CGameObject
 {
 private:
-	double mSpeed = 200;
+	double mSpeed = 400;
 	Vec2 mScale = Vec2(30,30);
 public:
 	CMissile();
 	~CMissile();
 	virtual void update();
 	virtual void render(HDC& hDC);
+
+	virtual void onCollisionEnter(CCollider* other);
 };
 

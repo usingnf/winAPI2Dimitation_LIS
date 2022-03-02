@@ -16,7 +16,8 @@ void CScene_Stage01::update()
 	{
 		for (int j = 0; j < getArrObj()[i].size(); j++)
 		{
-			getArrObj()[i][j]->update();
+			if (getArrObj()[i][j]->getIsDelete() == false)
+				getArrObj()[i][j]->update();
 		}
 	}
 
@@ -30,9 +31,22 @@ void CScene_Stage01::render(HDC& hDC)
 {
 	for (int i = 0; i < (UINT)Group_GameObj::Size; i++)
 	{
-		for (int j = 0; j < getArrObj()[i].size(); j++)
+		/*for (int j = 0; j < getArrObj()[i].size(); j++)
 		{
 			getArrObj()[i][j]->render(hDC);
+		}*/
+
+		for (vector<CGameObject*>::iterator iter = getArrObj()[i].begin(); iter != getArrObj()[i].end(); )
+		{
+			if ((*iter)->getIsDelete() == false)
+			{
+				(*iter)->render(hDC);
+				iter++;
+			}
+			else
+			{
+				iter = getArrObj()[i].erase(iter);
+			}
 		}
 	}
 }

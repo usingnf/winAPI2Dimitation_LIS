@@ -8,6 +8,7 @@ CPlayer_Right::CPlayer_Right()
 {
 	speed = pSpeed;
 	scale = pScale;
+	name = L"Enemy";
 
 	createCollider();
 	getCollider()->setColliderScale(Vec2(50, 50));

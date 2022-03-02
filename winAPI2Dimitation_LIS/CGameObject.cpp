@@ -4,6 +4,7 @@
 CGameObject::CGameObject()
 {
 	parent = nullptr;
+	name = L"Noname";
 	pos = Vec2(0,0);
 	angle = 0;
 	scale = Vec2(0,0);
@@ -17,7 +18,7 @@ CGameObject::CGameObject()
 
 	speed = 100;
 	hp = 100;
-	isDead = false;
+	isDelete = false;
 }
 
 CGameObject::~CGameObject()
@@ -58,6 +59,16 @@ void CGameObject::component_render(HDC& hDC)
 		collider->render(hDC);
 }
 
+void CGameObject::setName(wstring _name)
+{
+	this->name = _name;
+}
+
+wstring CGameObject::getName()
+{
+	return name;
+}
+
 void CGameObject::setPos(Vec2 vec)
 {
 	this->pos = vec;
@@ -81,6 +92,16 @@ Vec2 CGameObject::getScale()
 double CGameObject::getAngle()
 {
 	return this->angle;
+}
+
+bool CGameObject::getIsDelete()
+{
+	return isDelete;
+}
+
+void CGameObject::setIsDelete(bool dead)
+{
+	this->isDelete = dead;
 }
 
 void CGameObject::createCollider()

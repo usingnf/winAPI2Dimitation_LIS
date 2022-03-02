@@ -177,6 +177,9 @@
     <ClInclude Include="CCollisionManager.h">
       <Filter>1. Engine\CollisionManager</Filter>
     </ClInclude>
+    <ClInclude Include="CEventManager.h">
+      <Filter>1. Engine\EventManager</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="winAPI2Dimitation_LIS.cpp">
@@ -253,6 +256,9 @@
     </ClCompile>
     <ClCompile Include="CCollisionManager.cpp">
       <Filter>1. Engine\CollisionManager</Filter>
+    </ClCompile>
+    <ClCompile Include="CEventManager.cpp">
+      <Filter>1. Engine\EventManager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

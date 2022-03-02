@@ -6,7 +6,9 @@ class CTexture;
 
 class CGameObject
 {
+	friend class CEventManager;
 protected:
+	wstring name;
 	CGameObject* parent;
 	Vec2 pos;
 	double angle;
@@ -19,10 +21,11 @@ protected:
 	CCollider* collider;
 	CAnimator* animator;
 
-
 	double speed;
 	double hp;
-	bool isDead;
+	bool isDelete;
+
+	void setIsDelete(bool dead);
 
 public:
 	CGameObject();
@@ -33,6 +36,9 @@ public:
 	virtual void render(HDC& hDC);
 	virtual void component_render(HDC& hDC);
 	
+	void setName(wstring _name);
+	wstring getName();
+
 	void setPos(Vec2 vec);
 	Vec2 getPos();
 	
@@ -43,9 +49,15 @@ public:
 	virtual void setAngle(Vec2 vec);
 	virtual double getAngle();
 
+	bool getIsDelete();
+
 	void createCollider();
 	CCollider* getCollider();
 
 	void addForce(Vec2 vec);
+
+	virtual void onCollisionEnter(CCollider* other) {};
+	virtual void onCollisionStay(CCollider* other) {};
+	virtual void onCollisionExit(CCollider* other) {} ;
 };
 

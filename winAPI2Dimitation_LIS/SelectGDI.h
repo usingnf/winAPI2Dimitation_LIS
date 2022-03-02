@@ -12,6 +12,7 @@ public:
 	SelectGDI(HDC hDC, Group_Pen pen)
 	{
 		m_hDC = hDC;
+		m_hOldBrush = 0;
 		HPEN hPen = CCore::getInstance()->getPen(pen);
 		m_hOldPen = (HPEN)SelectObject(hDC, hPen);
 	}
@@ -19,6 +20,7 @@ public:
 	SelectGDI(HDC hDC, Group_Brush brush)
 	{
 		m_hDC = hDC;
+		m_hOldPen = 0;
 		HBRUSH hBrush = CCore::getInstance()->getBrush(brush);
 		m_hOldBrush = (HBRUSH)SelectObject(hDC, hBrush);
 	}
