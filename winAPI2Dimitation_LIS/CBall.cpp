@@ -8,6 +8,10 @@ CBall::CBall()
 {
 	scale = mScale;
 	speed = mSpeed;
+	name = L"Ball";
+
+	createCollider();
+	getCollider()->setColliderScale(Vec2(50, 50));
 }
 
 CBall::~CBall()
@@ -33,6 +37,8 @@ void CBall::update()
 		angle = 0;
 		speed = mSpeed;
 	}
+
+	/*
 	if (Vec2::distance(pos, leftPlayer->getPos()) < 50)
 	{
 		this->angle = rand() % 45;
@@ -41,6 +47,7 @@ void CBall::update()
 	{
 		this->angle = (rand() % 45) + 180;
 	}
+	*/
 	if (this->pos.y < 30)
 	{
 		this->pos.y += 3;
@@ -84,4 +91,20 @@ void CBall::render(HDC& hDC)
 
 	SelectObject(hDC, oldBrush);
 	DeleteObject(myBrush);
+
+	component_render(hDC);
+}
+
+void CBall::onCollisionEnter(CCollider* other)
+{
+	Logger::debug(L"E1");
+	if (other->getOwner()->getName() == L"Player")
+	{
+		this->angle = rand() % 45;
+	}
+
+	if (other->getOwner()->getName() == L"Enemy")
+	{
+		this->angle = (rand() % 45) + 180;
+	}
 }

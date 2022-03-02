@@ -7,10 +7,6 @@
 #include "CBall.h"
 #include "CText.h"
 
-CPlayer* leftPlayer = new CPlayer();
-CPlayer_Right* rightPlayer = new CPlayer_Right();
-CBall* ball = new CBall();
-
 int leftScore = 0;
 int rightScore = 0;
 
@@ -34,6 +30,10 @@ CSceneManager::~CSceneManager()
 
 void CSceneManager::init()
 {
+	CPlayer* leftPlayer = new CPlayer();
+	CPlayer_Right* rightPlayer = new CPlayer_Right();
+	CBall* ball = new CBall();
+
 	arrScene[(UINT)Group_Scene::Start] = new CScene_Start();
 	arrScene[(UINT)Group_Scene::Start]->setName(L"Start_Scene");
 
@@ -53,9 +53,9 @@ void CSceneManager::init()
 	rightPlayer->setPos(Vec2(WS_WIDTH, WS_HEIGHT / 2));
 	ball->setPos(Vec2(WS_WIDTH / 2, WS_HEIGHT / 2));
 
-	arrScene[(UINT)Group_Scene::Stage_01]->AddObject(leftPlayer, Group_GameObj::Default);
+	arrScene[(UINT)Group_Scene::Stage_01]->AddObject(leftPlayer, Group_GameObj::Monster);
 	arrScene[(UINT)Group_Scene::Stage_01]->AddObject(rightPlayer, Group_GameObj::Monster);
-	arrScene[(UINT)Group_Scene::Stage_01]->AddObject(ball, Group_GameObj::Default);
+	arrScene[(UINT)Group_Scene::Stage_01]->AddObject(ball, Group_GameObj::Missile);
 
 	curScene = arrScene[(UINT)Group_Scene::Start];
 	curScene->Enter();

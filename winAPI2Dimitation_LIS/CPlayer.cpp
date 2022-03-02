@@ -10,6 +10,8 @@ CPlayer::CPlayer()
 {
 	speed = pSpeed;
 	scale = pScale;
+	name = L"Player";
+
 	createCollider();
 	getCollider()->setColliderScale(Vec2(50, 50));
 	//collider->setColliderScale(Vec2(50, 50));

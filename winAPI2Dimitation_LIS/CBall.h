@@ -11,5 +11,7 @@ public:
 	~CBall();
 	virtual void update();
 	virtual void render(HDC& hDC);
+
+	virtual void onCollisionEnter(CCollider* other);
 };
 
