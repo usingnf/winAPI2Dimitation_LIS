@@ -22,6 +22,33 @@ enum class Group_GameObj
 	Size,
 };
 
+enum class Group_Scene
+{
+	Default,
+	Start,
+	Stage_01,
+	Stage_02,
+	End,
+	Size,
+};
+
+enum class Type_Event
+{
+	Create_Object,
+	Delete_Object,
+	Change_Scene,
+
+	Size,
+};
+
+enum class Key_State
+{
+	None,
+	Tap,
+	Hold,
+	Off,
+};
+
 #define WS_MYSTYLE WS_CAPTION | WS_SYSMENU | WS_MINIMIZEBOX
 #define WS_WIDTH 1280
 #define WS_HEIGHT 720
@@ -49,6 +76,7 @@ enum class Group_GameObj
 #define KEY(vk_key) CKeyManager::getInstance()->getButtonState(vk_key)
 #define CREATEOBJECT(obj, type) CEventManager::getInstance()->createGameObject(obj, type)
 #define DELETEOBJECT(obj) CEventManager::getInstance()->deleteGameObject(obj);
+#define CHANGESCENE(scene) CEventManager::getInstance()->changeScene(scene);
 
 #define PI 3.141592
 #define RADIAN (PI/180)

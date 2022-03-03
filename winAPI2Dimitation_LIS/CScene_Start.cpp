@@ -22,7 +22,8 @@ void CScene_Start::update()
 
 	if (KEY('R') == (UINT)Key_State::Tap)
 	{
-		CSceneManager::getInstance()->changeScene(Group_Scene::Stage_01);
+		CHANGESCENE(Group_Scene::Stage_01);
+		//CSceneManager::getInstance()->changeScene(Group_Scene::Stage_01);
 	}
 }
 

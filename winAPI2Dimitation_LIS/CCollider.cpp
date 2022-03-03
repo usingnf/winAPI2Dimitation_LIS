@@ -27,7 +27,7 @@ CCollider::CCollider(const CCollider& other)
 	offSet = other.offSet;
 	colliderPos = other.colliderPos;
 	colliderScale = other.colliderScale;
-	ID = static_ID;
+	ID = static_ID++;
 	collCount = other.collCount;
 }
 

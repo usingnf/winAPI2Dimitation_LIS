@@ -7,6 +7,11 @@ CMissile2::CMissile2()
 	gravity = 100;
 }
 
+CMissile2* CMissile2::clone()
+{
+	return new CMissile2(*this);
+}
+
 CMissile2::~CMissile2()
 {
 	

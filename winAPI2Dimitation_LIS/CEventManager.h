@@ -1,14 +1,5 @@
 #pragma once
 
-enum class Type_Event
-{
-	Create_Object,
-	Delete_Object,
-	Change_Scene,
-
-	Size,
-};
-
 struct tEvent
 {
 	Type_Event type;
@@ -29,5 +20,6 @@ public:
 	void addEvent(const tEvent& _event);
 	void createGameObject(const CGameObject* obj, Group_GameObj type);
 	void deleteGameObject(CGameObject* obj);
+	void changeScene(Group_Scene scene);
 };
 

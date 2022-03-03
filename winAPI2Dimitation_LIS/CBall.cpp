@@ -14,6 +14,11 @@ CBall::CBall()
 	getCollider()->setColliderScale(Vec2(50, 50));
 }
 
+CBall* CBall::clone()
+{
+	return new CBall(*this);
+}
+
 CBall::~CBall()
 {
 

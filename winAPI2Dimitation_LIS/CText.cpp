@@ -7,6 +7,11 @@ CText::CText()
 	wcscpy_s(mtext, L"123");
 }
 
+CText* CText::clone()
+{
+	return new CText(*this);
+}
+
 CText::~CText()
 {
 }

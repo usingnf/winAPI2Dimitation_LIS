@@ -1,18 +1,6 @@
 #pragma once
 #include "CSingleton.h"
 
-using std::vector;
-
-enum class Group_Scene
-{
-	Default,
-	Start,
-	Stage_01,
-	Stage_02,
-	End,
-	Size,
-};
-
 class CScene;
 
 class CSceneManager

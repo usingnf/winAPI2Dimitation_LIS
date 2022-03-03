@@ -7,6 +7,11 @@ CMonster::CMonster()
 	scale = mScale;
 }
 
+CMonster* CMonster::clone()
+{
+	return new CMonster(*this);
+}
+
 CMonster::~CMonster()
 {
 }

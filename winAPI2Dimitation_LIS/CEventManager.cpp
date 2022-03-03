@@ -50,7 +50,8 @@ void CEventManager::execute(const tEvent& _event)
 	}
 	case Type_Event::Change_Scene:
 	{
-
+		Group_Scene group = (Group_Scene)_event.lParam;
+		CSceneManager::getInstance()->changeScene(group);
 		break;
 	}
 	}
@@ -76,6 +77,14 @@ void CEventManager::deleteGameObject(CGameObject* obj)
 	tEvent _event;
 	_event.type = Type_Event::Delete_Object;
 	_event.lParam = (DWORD_PTR)obj;
+	addEvent(_event);
+}
+
+void CEventManager::changeScene(Group_Scene scene)
+{
+	tEvent _event;
+	_event.type = Type_Event::Change_Scene;
+	_event.lParam = (DWORD_PTR)scene;
 	addEvent(_event);
 }
 

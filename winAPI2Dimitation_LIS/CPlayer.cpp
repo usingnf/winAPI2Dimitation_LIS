@@ -19,6 +19,11 @@ CPlayer::CPlayer()
 	texture = CResourceManager::getInstance()->loadTexture(L"Player", L"Player.bmp");
 }
 
+CPlayer* CPlayer::clone()
+{
+	return new CPlayer(*this);
+}
+
 CPlayer::~CPlayer()
 {
 }

@@ -9,6 +9,7 @@ private:
 	double pSpeed = 300;
 public:
 	CPlayer();
+	virtual CPlayer* clone();
 	~CPlayer();
 	virtual void update();
 	virtual void render(HDC& hDC);

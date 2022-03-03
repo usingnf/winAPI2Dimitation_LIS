@@ -14,6 +14,11 @@ CPlayer_Right::CPlayer_Right()
 	getCollider()->setColliderScale(Vec2(50, 50));
 }
 
+CPlayer_Right* CPlayer_Right::clone()
+{
+	return new CPlayer_Right(*this);
+}
+
 CPlayer_Right::~CPlayer_Right()
 {
 }

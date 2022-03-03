@@ -12,6 +12,11 @@ CMissile::CMissile()
 	getCollider()->setColliderScale(Vec2(30, 30));
 }
 
+CMissile* CMissile::clone()
+{
+	return new CMissile(*this);
+}
+
 CMissile::~CMissile()
 {
 

@@ -21,6 +21,35 @@ CGameObject::CGameObject()
 	isDelete = false;
 }
 
+CGameObject::CGameObject(const CGameObject& other)
+{
+	parent = other.parent;
+	name = other.name;
+	pos = other.pos;
+	angle = other.angle;
+	scale = other.scale;
+	velocity = other.velocity;
+	gravity = other.gravity;
+	drag = other.drag;
+
+	texture = other.texture;
+
+	if (nullptr != collider)
+	{
+		collider = new CCollider(*other.collider);
+		collider->owner = this;
+	}
+	else
+	{
+		collider = nullptr;
+	}
+
+	speed = other.speed;
+	hp = other.hp;
+	isDelete = false;
+
+}
+
 CGameObject::~CGameObject()
 {
 	if (nullptr != collider)

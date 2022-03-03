@@ -1,13 +1,7 @@
 #pragma once
 #define VK_SIZE 255
 
-enum class Key_State
-{
-	None,
-	Tap,
-	Hold,
-	Off,
-};
+
 
 
 class CKeyManager

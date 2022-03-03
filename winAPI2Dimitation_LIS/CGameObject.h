@@ -29,6 +29,8 @@ protected:
 
 public:
 	CGameObject();
+	CGameObject(const CGameObject& other);
+	virtual CGameObject* clone() = 0;
 	virtual ~CGameObject();
 
 	virtual void update();

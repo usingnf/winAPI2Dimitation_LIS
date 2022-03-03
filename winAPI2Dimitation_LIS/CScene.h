@@ -21,6 +21,8 @@ public:
 	void AddObject(CGameObject* pObj, Group_GameObj type);
 
 	const vector<CGameObject*>& getGroupObject(Group_GameObj type);
+	void deleteGroup(Group_GameObj group);
+	void deleteAll();
 
 	virtual void update();
 	virtual void finalupdate();

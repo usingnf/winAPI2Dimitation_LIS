@@ -9,6 +9,7 @@ private:
 	double maxMove = 300;
 public:
 	CMonster();
+	virtual CMonster* clone();
 	~CMonster();
 	void setCenter(Vec2 vec);
 	virtual void update();

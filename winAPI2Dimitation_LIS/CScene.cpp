@@ -43,6 +43,23 @@ const vector<CGameObject*>& CScene::getGroupObject(Group_GameObj type)
 	return m_arrObj[(UINT)type];
 }
 
+void CScene::deleteGroup(Group_GameObj group)
+{
+	for (int i = 0; i < m_arrObj[(UINT)group].size(); i++)
+	{
+		delete m_arrObj[(UINT)group][i];
+	}
+	m_arrObj[(UINT)group].clear();
+}
+
+void CScene::deleteAll()
+{
+	for (int i = 0; i < (UINT)Group_GameObj::Size; i++)
+	{
+		deleteGroup((Group_GameObj)i);
+	}
+}
+
 
 void CScene::update()
 {

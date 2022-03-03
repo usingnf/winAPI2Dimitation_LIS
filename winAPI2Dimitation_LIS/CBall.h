@@ -8,6 +8,7 @@ private:
 	double maxSpeed = 1200;
 public:
 	CBall();
+	virtual CBall* clone();
 	~CBall();
 	virtual void update();
 	virtual void render(HDC& hDC);
