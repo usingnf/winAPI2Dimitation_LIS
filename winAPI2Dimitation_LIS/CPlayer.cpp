@@ -16,7 +16,17 @@ CPlayer::CPlayer()
 	getCollider()->setColliderScale(Vec2(50, 50));
 	//collider->setColliderScale(Vec2(50, 50));
 
-	texture = CResourceManager::getInstance()->loadTexture(L"Player", L"Player.bmp");
+	texture = CResourceManager::getInstance()->loadTexture(L"Player", L"Animation_Player.bmp");
+
+	createAnimator();
+	getAnimator()->createAnimation(L"Stand", texture, Vec2(0, 0), Vec2(70, 70), Vec2(70, 0), 0.2, 3);
+	getAnimator()->play(L"Stand");
+
+	CAnimation* ani;
+	ani = getAnimator()->findAnimation(L"Stand");
+	ani->GetFrame(1).fptOffset = Vec2(10, 10);
+	ani->GetFrame(1).duration = 1;
+	ani->setLoop(true);
 }
 
 CPlayer* CPlayer::clone()
@@ -33,13 +43,20 @@ void CPlayer::update()
 	Vec2 vec(0,0);
 	if (KEY('W') == (UINT)Key_State::Hold)
 	{
-		if (this->pos.y > 0)
-			vec.y += -1;
+		vec.y += -1;
 	}
 	if (KEY('S') == (UINT)Key_State::Hold)
 	{
-		if (this->pos.y < WS_HEIGHT)
-			vec.y += 1;
+		vec.y += 1;
+			
+	}
+	if (KEY('D') == (UINT)Key_State::Hold)
+	{
+		vec.x += 1;
+	}
+	if (KEY('A') == (UINT)Key_State::Hold)
+	{
+		vec.x += -1;
 	}
 	Vec2::normalize(vec);
 	this->pos.x += speed * DT() * vec.x;
@@ -50,6 +67,10 @@ void CPlayer::update()
 		CreateMissile();
 		CreateMissile2();
 	}
+
+	CAnimator* ani = getAnimator();
+	if (ani != nullptr)
+		ani->update();
 }
 
 void CPlayer::render(HDC& hDC)
@@ -61,12 +82,12 @@ void CPlayer::render(HDC& hDC)
 		pos.x + (scale.x / 2),
 		pos.y + (scale.y / 2));*/
 
-	int width = texture->getBitmapWidth();
-	int height = texture->getBitmapHeight();
+	//int width = texture->getBitmapWidth();
+	//int height = texture->getBitmapHeight();
 
 	/*BitBlt(hDC, pos.x - (width / 2), pos.y - (height / 2), pos.x + (width / 2), pos.y + (height / 2)
 		,texture->getDC(), 0, 0, SRCCOPY );*/
-
+	/*
 	TransparentBlt(hDC,
 		(int)(pos.x - (double)(width / 2)),
 		(int)(pos.y - (double)(height / 2)),
@@ -74,6 +95,7 @@ void CPlayer::render(HDC& hDC)
 		texture->getDC(),
 		0, 0, width, height,
 		RGB(255, 0, 255));
+	*/
 
 	component_render(hDC);
 }

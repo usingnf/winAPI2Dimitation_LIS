@@ -44,6 +44,19 @@ public:
 	{
 		return Vec2(this->x - vec.x, this->y - vec.y);
 	}
+
+	template<typename T>
+	Vec2 operator*(const T value)
+	{
+		return Vec2(x * value, y * value);
+	}
+	template<typename T>
+	Vec2 operator/(const T value)
+	{
+
+		return Vec2(x / value, y / value);
+	}
+
 };
 
 //void normalize(Vec2& vec);

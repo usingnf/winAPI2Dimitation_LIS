@@ -85,6 +85,9 @@
     <Filter Include="1. Engine\CollisionManager">
       <UniqueIdentifier>{d9aa4e4d-6308-4beb-9bf9-ec033c800a3d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="1. Engine\CameraManager">
+      <UniqueIdentifier>{20bba814-b298-435e-8dc5-57624214449c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -180,6 +183,18 @@
     <ClInclude Include="CEventManager.h">
       <Filter>1. Engine\EventManager</Filter>
     </ClInclude>
+    <ClInclude Include="CAnimator.h">
+      <Filter>5. Component\2. Animator</Filter>
+    </ClInclude>
+    <ClInclude Include="CAnimation.h">
+      <Filter>5. Component\2. Animator</Filter>
+    </ClInclude>
+    <ClInclude Include="CRemilia.h">
+      <Filter>4. Object</Filter>
+    </ClInclude>
+    <ClInclude Include="CCameraManager.h">
+      <Filter>1. Engine\CameraManager</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="winAPI2Dimitation_LIS.cpp">
@@ -259,6 +274,18 @@
     </ClCompile>
     <ClCompile Include="CEventManager.cpp">
       <Filter>1. Engine\EventManager</Filter>
+    </ClCompile>
+    <ClCompile Include="CAnimator.cpp">
+      <Filter>5. Component\2. Animator</Filter>
+    </ClCompile>
+    <ClCompile Include="CAnimation.cpp">
+      <Filter>5. Component\2. Animator</Filter>
+    </ClCompile>
+    <ClCompile Include="CRemilia.cpp">
+      <Filter>4. Object</Filter>
+    </ClCompile>
+    <ClCompile Include="CCameraManager.cpp">
+      <Filter>1. Engine\CameraManager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -31,17 +31,20 @@ CGameObject::CGameObject(const CGameObject& other)
 	velocity = other.velocity;
 	gravity = other.gravity;
 	drag = other.drag;
+	collider = nullptr;
+	animator = nullptr;
 
 	texture = other.texture;
 
-	if (nullptr != collider)
+	if (nullptr != other.collider)
 	{
 		collider = new CCollider(*other.collider);
 		collider->owner = this;
 	}
-	else
+	if (nullptr != other.collider)
 	{
-		collider = nullptr;
+		animator = new CAnimator(*other.animator);
+		animator->owner = this;
 	}
 
 	speed = other.speed;
@@ -73,11 +76,13 @@ void CGameObject::finalupdate()
 
 void CGameObject::render(HDC& hDC)
 {
+	Vec2 camPos = CCameraManager::getInstance()->getRenderPos(pos);
+
 	Rectangle(hDC, 
-		pos.x - (scale.x / 2), 
-		pos.y - (scale.y / 2), 
-		pos.x + (scale.x / 2), 
-		pos.y + (scale.y / 2));
+		camPos.x - (scale.x / 2),
+		camPos.y - (scale.y / 2),
+		camPos.x + (scale.x / 2),
+		camPos.y + (scale.y / 2));
 
 	component_render(hDC);
 }
@@ -86,6 +91,8 @@ void CGameObject::component_render(HDC& hDC)
 {
 	if(collider != nullptr)
 		collider->render(hDC);
+	if (animator != nullptr)
+		animator->render(hDC);
 }
 
 void CGameObject::setName(wstring _name)
@@ -148,6 +155,17 @@ void CGameObject::addForce(Vec2 vec)
 {
 	this->velocity.x += vec.x;
 	this->velocity.y += vec.y;
+}
+
+CAnimator* CGameObject::getAnimator()
+{
+	return animator;
+}
+
+void CGameObject::createAnimator()
+{
+	animator = new CAnimator();
+	animator->owner = this;
 }
 
 

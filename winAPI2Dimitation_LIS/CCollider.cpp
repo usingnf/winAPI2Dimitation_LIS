@@ -60,11 +60,13 @@ void CCollider::render(HDC& hDC)
 	SelectGDI brush(hDC, Group_Brush::Hollow);
 	SelectGDI pen(hDC, pType);
 
+	Vec2 camPos = CCameraManager::getInstance()->getRenderPos(colliderPos);
+
 	Rectangle(hDC,
-		colliderPos.x - (colliderScale.x / 2),
-		colliderPos.y - (colliderScale.y / 2),
-		colliderPos.x + (colliderScale.x / 2),
-		colliderPos.y + (colliderScale.y / 2));
+		camPos.x - (colliderScale.x / 2),
+		camPos.y - (colliderScale.y / 2),
+		camPos.x + (colliderScale.x / 2),
+		camPos.y + (colliderScale.y / 2));
 
 
 	/*SelectObject(hDC, hOldPen);

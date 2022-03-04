@@ -1,7 +1,8 @@
 #pragma once
+#include "CAnimator.h"
 
 class CCollider;
-class CAnimator;
+//class CAnimator;
 class CTexture;
 
 class CGameObject
@@ -61,5 +62,8 @@ public:
 	virtual void onCollisionEnter(CCollider* other) {};
 	virtual void onCollisionStay(CCollider* other) {};
 	virtual void onCollisionExit(CCollider* other) {} ;
+
+	CAnimator* getAnimator();
+	void createAnimator();
 };
 

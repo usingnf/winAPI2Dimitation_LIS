@@ -16,6 +16,8 @@ CKeyManager::~CKeyManager()
 
 void CKeyManager::update()
 {
+	
+
 	//창 비활성화시 키 입력 해제.
 	HWND curWnd = GetFocus();
 	if (hWnd != curWnd)
@@ -66,6 +68,11 @@ void CKeyManager::update()
 		}
 	}
 	
+	POINT p;
+	GetCursorPos(&p);
+	ScreenToClient(hWnd, &p);
+	m_curMousePos.x = p.x;
+	m_curMousePos.y = p.y;
 }
 
 void CKeyManager::init()
@@ -76,4 +83,9 @@ void CKeyManager::init()
 int CKeyManager::getButtonState(const int& key)
 {
 	return m_arrCurKey[key];
+}
+
+Vec2 CKeyManager::getMousePos()
+{
+	return m_curMousePos;
 }

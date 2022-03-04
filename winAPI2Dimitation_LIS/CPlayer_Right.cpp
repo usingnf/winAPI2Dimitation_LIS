@@ -48,11 +48,12 @@ void CPlayer_Right::update()
 
 void CPlayer_Right::render(HDC& hDC)
 {
+	Vec2 camPos = CCameraManager::getInstance()->getRenderPos(pos);
 	Ellipse(hDC,
-		pos.x - (scale.x / 2),
-		pos.y - (scale.y / 2),
-		pos.x + (scale.x / 2),
-		pos.y + (scale.y / 2));
+		camPos.x - (scale.x / 2),
+		camPos.y - (scale.y / 2),
+		camPos.x + (scale.x / 2),
+		camPos.y + (scale.y / 2));
 
 	component_render(hDC);
 }

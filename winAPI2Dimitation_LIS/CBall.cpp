@@ -88,11 +88,12 @@ void CBall::render(HDC& hDC)
 	HBRUSH myBrush = (HBRUSH)CreateSolidBrush(RGB(255, 0, 0));
 	HBRUSH oldBrush = (HBRUSH)SelectObject(hDC, myBrush);
 
+	Vec2 camPos = CCameraManager::getInstance()->getRenderPos(pos);
 	Ellipse(hDC,
-		pos.x - (scale.x / 2),
-		pos.y - (scale.y / 2),
-		pos.x + (scale.x / 2),
-		pos.y + (scale.y / 2));
+		camPos.x - (scale.x / 2),
+		camPos.y - (scale.y / 2),
+		camPos.x + (scale.x / 2),
+		camPos.y + (scale.y / 2));
 
 	SelectObject(hDC, oldBrush);
 	DeleteObject(myBrush);

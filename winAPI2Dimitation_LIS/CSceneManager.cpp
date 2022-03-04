@@ -6,6 +6,7 @@
 #include "CPlayer_Right.h"
 #include "CBall.h"
 #include "CText.h"
+#include "CRemilia.h"
 
 int leftScore = 0;
 int rightScore = 0;
@@ -30,13 +31,28 @@ CSceneManager::~CSceneManager()
 
 void CSceneManager::init()
 {
+	
 	CPlayer* leftPlayer = new CPlayer();
 	CPlayer_Right* rightPlayer = new CPlayer_Right();
 	CBall* ball = new CBall();
+	CRemilia* remilia = new CRemilia();
 
 	arrScene[(UINT)Group_Scene::Start] = new CScene_Start();
 	arrScene[(UINT)Group_Scene::Start]->setName(L"Start_Scene");
 
+	arrScene[(UINT)Group_Scene::Stage_01] = new CScene_Stage01();
+	arrScene[(UINT)Group_Scene::Start]->setName(L"Start_Stage_01");
+	
+	leftPlayer->setPos(Vec2(0, WS_HEIGHT / 2));
+	rightPlayer->setPos(Vec2(WS_WIDTH, WS_HEIGHT / 2));
+	ball->setPos(Vec2(WS_WIDTH / 2, WS_HEIGHT / 2));
+	remilia->setPos(Vec2(WS_WIDTH / 2, WS_HEIGHT / 2));
+
+	arrScene[(UINT)Group_Scene::Stage_01]->AddObject(leftPlayer, Group_GameObj::Monster);
+	arrScene[(UINT)Group_Scene::Stage_01]->AddObject(rightPlayer, Group_GameObj::Monster);
+	arrScene[(UINT)Group_Scene::Stage_01]->AddObject(ball, Group_GameObj::Missile);
+	arrScene[(UINT)Group_Scene::Stage_01]->AddObject(remilia, Group_GameObj::Player);
+	
 	CText* text = new CText();
 	text->setText(L"R키를 눌러서 시작");
 	text->setPos(Vec2(WS_WIDTH / 2, WS_HEIGHT / 2));
@@ -46,16 +62,10 @@ void CSceneManager::init()
 	text2->setText(L"키:W/S/↑/↓");
 	arrScene[(UINT)Group_Scene::Start]->AddObject(text2, Group_GameObj::Default);
 
-	arrScene[(UINT)Group_Scene::Stage_01] = new CScene_Stage01();
-	arrScene[(UINT)Group_Scene::Start]->setName(L"Start_Stage_01");
-	
-	leftPlayer->setPos(Vec2(0, WS_HEIGHT / 2));
-	rightPlayer->setPos(Vec2(WS_WIDTH, WS_HEIGHT / 2));
-	ball->setPos(Vec2(WS_WIDTH / 2, WS_HEIGHT / 2));
-
-	arrScene[(UINT)Group_Scene::Stage_01]->AddObject(leftPlayer, Group_GameObj::Monster);
-	arrScene[(UINT)Group_Scene::Stage_01]->AddObject(rightPlayer, Group_GameObj::Monster);
-	arrScene[(UINT)Group_Scene::Stage_01]->AddObject(ball, Group_GameObj::Missile);
+	CPlayer* player = new CPlayer();
+	player->setPos(Vec2(WS_WIDTH / 2, WS_HEIGHT / 2));
+	arrScene[(UINT)Group_Scene::Stage_01]->AddObject(player, Group_GameObj::Player);
+	CCameraManager::getInstance()->setTargetObj(player);
 
 	curScene = arrScene[(UINT)Group_Scene::Start];
 	curScene->Enter();

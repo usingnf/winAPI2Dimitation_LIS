@@ -21,7 +21,6 @@ CResourceManager::~CResourceManager()
 
 CTexture* CResourceManager::findTexture(const wstring& name)
 {
-	return nullptr;
 	map<wstring, CTexture*>::iterator iter = textureData.find(name);
 	if (iter == textureData.end())
 		return nullptr;

@@ -62,12 +62,14 @@ enum class Key_State
 #include "CSingleton.h"
 #include "CTimeManager.h"
 
+
 #include "CKeyManager.h"
 #include "CPathManager.h"
 #include "CResourceManager.h"
 #include "CCollisionManager.h"
 #include "CEventManager.h"
 #include "CGameObject.h"
+#include "CCameraManager.h"
 #include "CSceneManager.h"
 
 
@@ -77,6 +79,7 @@ enum class Key_State
 #define CREATEOBJECT(obj, type) CEventManager::getInstance()->createGameObject(obj, type)
 #define DELETEOBJECT(obj) CEventManager::getInstance()->deleteGameObject(obj);
 #define CHANGESCENE(scene) CEventManager::getInstance()->changeScene(scene);
+#define GETMOUSEPOS() CCameraManager::getInstance()->getMousePos();
 
 #define PI 3.141592
 #define RADIAN (PI/180)

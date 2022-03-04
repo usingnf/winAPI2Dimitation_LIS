@@ -23,11 +23,13 @@ CCore::~CCore()
 
 void CCore::update()
 {
+	
 	CEventManager::getInstance()->update();
 	CTimeManager::getInstance()->update();
 	CKeyManager::getInstance()->update();
 	CSceneManager::getInstance()->update();
 	CCollisionManager::getInstance()->update();
+	CCameraManager::getInstance()->update();
 }
 
 void CCore::render()
