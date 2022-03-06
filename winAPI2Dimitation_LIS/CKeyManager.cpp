@@ -73,6 +73,8 @@ void CKeyManager::update()
 	ScreenToClient(hWnd, &p);
 	m_curMousePos.x = p.x;
 	m_curMousePos.y = p.y;
+	m_CameraMousePos.x = CCameraManager::getInstance()->getRealPos(m_curMousePos).x;
+	m_CameraMousePos.y = CCameraManager::getInstance()->getRealPos(m_curMousePos).y;
 }
 
 void CKeyManager::init()
@@ -89,3 +91,9 @@ Vec2 CKeyManager::getMousePos()
 {
 	return m_curMousePos;
 }
+
+Vec2 CKeyManager::getCameraMousePos()
+{
+	return m_CameraMousePos;
+}
+

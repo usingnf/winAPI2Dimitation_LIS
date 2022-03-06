@@ -156,9 +156,11 @@
     <ClInclude Include="CCollisionManager.h" />
     <ClInclude Include="CCollider.h" />
     <ClInclude Include="CCore.h" />
+    <ClInclude Include="CEnemy01.h" />
     <ClInclude Include="CEventManager.h" />
     <ClInclude Include="CKeyManager.h" />
     <ClInclude Include="CGameObject.h" />
+    <ClInclude Include="CMario.h" />
     <ClInclude Include="CMissile.h" />
     <ClInclude Include="CMissile2.h" />
     <ClInclude Include="CMonster.h" />
@@ -176,6 +178,7 @@
     <ClInclude Include="CText.h" />
     <ClInclude Include="CTexture.h" />
     <ClInclude Include="CTimeManager.h" />
+    <ClInclude Include="CWall.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="logger.h" />
     <ClInclude Include="pch.h" />
@@ -193,9 +196,11 @@
     <ClCompile Include="CCollisionManager.cpp" />
     <ClCompile Include="CCollider.cpp" />
     <ClCompile Include="CCore.cpp" />
+    <ClCompile Include="CEnemy01.cpp" />
     <ClCompile Include="CEventManager.cpp" />
     <ClCompile Include="CKeyManager.cpp" />
     <ClCompile Include="CGameObject.cpp" />
+    <ClCompile Include="CMario.cpp" />
     <ClCompile Include="CMissile.cpp" />
     <ClCompile Include="CMissile2.cpp" />
     <ClCompile Include="CMonster.cpp" />
@@ -213,6 +218,7 @@
     <ClCompile Include="CText.cpp" />
     <ClCompile Include="CTexture.cpp" />
     <ClCompile Include="CTimeManager.cpp" />
+    <ClCompile Include="CWall.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>

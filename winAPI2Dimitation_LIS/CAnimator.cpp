@@ -45,6 +45,7 @@ void CAnimator::createAnimation(const wstring& name, CTexture* tex, Vec2 leftTop
 	}
 	ani = new CAnimation();
 	ani->animator = this;
+	ani->name = name;
 	ani->create(tex, leftTop, slice, step, duration, frameCount);
 
 	m_mapAni.insert(make_pair(name, ani));
@@ -58,6 +59,16 @@ CAnimation* CAnimator::findAnimation(const wstring& name)
 		return nullptr;
 	}
 	return iter->second;
+}
+
+CAnimation* CAnimator::getCurAnimation()
+{
+	return curAnimation;
+}
+
+wstring CAnimator::getCurAnimationName()
+{
+	return curAnimation->getName();
 }
 
 void CAnimator::selectAnimator()

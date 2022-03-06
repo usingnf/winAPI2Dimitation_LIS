@@ -65,3 +65,8 @@ double Vec2::getAngle(Vec2 left, Vec2 right)
 {
 	return atan(-(right.y - left.y) / (right.x - left.x)) / RADIAN;
 }
+
+double Vec2::length()
+{
+	return sqrt((x * x) + (y * y));
+}

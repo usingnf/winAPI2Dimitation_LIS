@@ -125,6 +125,16 @@ Vec2 CGameObject::getScale()
 	return scale;
 }
 
+void CGameObject::setHp(double hp)
+{
+	this->hp = hp;
+}
+
+double CGameObject::getHp()
+{
+	return hp;
+}
+
 double CGameObject::getAngle()
 {
 	return this->angle;

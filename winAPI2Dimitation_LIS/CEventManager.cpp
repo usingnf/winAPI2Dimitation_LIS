@@ -17,7 +17,8 @@ void CEventManager::update()
 {
 	for (int i = 0; i < m_vecDelete.size(); i++)
 	{
-		delete m_vecDelete[i];
+		if(nullptr != m_vecDelete[i])
+			delete m_vecDelete[i];
 	}
 	m_vecDelete.clear();
 

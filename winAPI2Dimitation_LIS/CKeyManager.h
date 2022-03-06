@@ -11,6 +11,7 @@ private:
 	bool m_arrPrevKey[VK_SIZE];
 	int m_arrCurKey[VK_SIZE];
 	Vec2 m_curMousePos;
+	Vec2 m_CameraMousePos;
 public:
 	void update();
 	void init();
@@ -19,5 +20,7 @@ public:
 
 
 	Vec2 getMousePos();
+	Vec2 getCameraMousePos();
+
 };
 

@@ -129,7 +129,10 @@ bool CCollisionManager::isCollision(CCollider* left, CCollider* right)
 
 void CCollisionManager::init()
 {
+	checkGroup(Group_GameObj::Player, Group_GameObj::Wall);
 	checkGroup(Group_GameObj::Monster, Group_GameObj::Missile);
+	checkGroup(Group_GameObj::Monster, Group_GameObj::Wall);
+	checkGroup(Group_GameObj::Player, Group_GameObj::Monster);
 }
 
 void CCollisionManager::update()

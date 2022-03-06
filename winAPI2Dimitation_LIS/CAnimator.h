@@ -20,6 +20,8 @@ public:
 
 	void createAnimation(const wstring& name, CTexture* tex, Vec2 leftTop, Vec2 slice, Vec2 step, float duration, UINT frameCount);
 	CAnimation* findAnimation(const wstring& name);
+	CAnimation* getCurAnimation();
+	wstring getCurAnimationName();
 	void selectAnimator();
 	void play(const wstring& name);
 };

@@ -31,27 +31,11 @@ CSceneManager::~CSceneManager()
 
 void CSceneManager::init()
 {
-	
-	CPlayer* leftPlayer = new CPlayer();
-	CPlayer_Right* rightPlayer = new CPlayer_Right();
-	CBall* ball = new CBall();
-	CRemilia* remilia = new CRemilia();
-
 	arrScene[(UINT)Group_Scene::Start] = new CScene_Start();
 	arrScene[(UINT)Group_Scene::Start]->setName(L"Start_Scene");
 
 	arrScene[(UINT)Group_Scene::Stage_01] = new CScene_Stage01();
 	arrScene[(UINT)Group_Scene::Start]->setName(L"Start_Stage_01");
-	
-	leftPlayer->setPos(Vec2(0, WS_HEIGHT / 2));
-	rightPlayer->setPos(Vec2(WS_WIDTH, WS_HEIGHT / 2));
-	ball->setPos(Vec2(WS_WIDTH / 2, WS_HEIGHT / 2));
-	remilia->setPos(Vec2(WS_WIDTH / 2, WS_HEIGHT / 2));
-
-	arrScene[(UINT)Group_Scene::Stage_01]->AddObject(leftPlayer, Group_GameObj::Monster);
-	arrScene[(UINT)Group_Scene::Stage_01]->AddObject(rightPlayer, Group_GameObj::Monster);
-	arrScene[(UINT)Group_Scene::Stage_01]->AddObject(ball, Group_GameObj::Missile);
-	arrScene[(UINT)Group_Scene::Stage_01]->AddObject(remilia, Group_GameObj::Player);
 	
 	CText* text = new CText();
 	text->setText(L"R키를 눌러서 시작");
@@ -61,11 +45,6 @@ void CSceneManager::init()
 	text2->setPos(Vec2(WS_WIDTH / 2, (WS_HEIGHT / 2) + 30));
 	text2->setText(L"키:W/S/↑/↓");
 	arrScene[(UINT)Group_Scene::Start]->AddObject(text2, Group_GameObj::Default);
-
-	CPlayer* player = new CPlayer();
-	player->setPos(Vec2(WS_WIDTH / 2, WS_HEIGHT / 2));
-	arrScene[(UINT)Group_Scene::Stage_01]->AddObject(player, Group_GameObj::Player);
-	CCameraManager::getInstance()->setTargetObj(player);
 
 	curScene = arrScene[(UINT)Group_Scene::Start];
 	curScene->Enter();
@@ -80,26 +59,12 @@ void CSceneManager::changeScene(Group_Scene type)
 
 void CSceneManager::update()
 {
-	/*for (int i = 0; i < (UINT)GROUP_GAMEOBJ::SIZE; i++)
-	{
-		for (int j = 0; j < curScene->getArrObj()[i].size(); j++)
-		{
-			curScene->getArrObj()[i][j]->update();
-		}
-	}*/
 	curScene->update();
 	curScene->finalupdate();
 }
 
 void CSceneManager::render(HDC& hDC)
 {
-	/*for (int i = 0; i < (UINT)GROUP_GAMEOBJ::SIZE; i++)
-	{
-		for (int j = 0; j < curScene->getArrObj()[i].size(); j++)
-		{
-			curScene->getArrObj()[i][j]->render(hDC);
-		}
-	}*/
 	curScene->render(hDC);
 }
 

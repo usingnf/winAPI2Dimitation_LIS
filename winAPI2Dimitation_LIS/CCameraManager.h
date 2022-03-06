@@ -5,8 +5,13 @@ class CCameraManager
 
 private:
 	Vec2 pos;
+	Vec2 destPos;
 	Vec2 diffPos;
 	CGameObject* targetObj;
+
+	double time;
+	double speed;
+	double maxSpeed;
 public:
 
 	void setLookAt(Vec2 vec);
@@ -14,8 +19,13 @@ public:
 	
 	void calDiff();
 
+	Vec2 getPos();
+	Vec2 getCurPos();
 	Vec2 getRenderPos(Vec2 vec);
+	Vec2 getRealPos(Vec2 vec);
 
 	void update();
+
+	void timeMove(Vec2 dest, double t);
 };
 

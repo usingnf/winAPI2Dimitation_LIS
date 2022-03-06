@@ -30,6 +30,9 @@ public:
 	static double distance(Vec2 left, Vec2 right);
 	static double getAngle(Vec2 vec);
 	static double getAngle(Vec2 left, Vec2 right);
+
+	double length();
+
 	Vec2& operator=(const Vec2& vec)
 	{
 		this->x = vec.x;

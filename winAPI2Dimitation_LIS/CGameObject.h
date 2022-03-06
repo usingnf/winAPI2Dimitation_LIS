@@ -25,6 +25,7 @@ protected:
 	double speed;
 	double hp;
 	bool isDelete;
+	double timer = 0;
 
 	void setIsDelete(bool dead);
 
@@ -47,6 +48,9 @@ public:
 	
 	void setScale(Vec2 scale);
 	Vec2 getScale();
+
+	void setHp(double hp);
+	double getHp();
 
 	virtual void setAngle(double ang);
 	virtual void setAngle(Vec2 vec);

@@ -15,9 +15,12 @@ using std::wstring;
 enum class Group_GameObj
 {
 	Default,
-	Missile,
+	Background,
 	Monster,
 	Player,
+	Missile,
+	Wall,
+	UI,
 
 	Size,
 };

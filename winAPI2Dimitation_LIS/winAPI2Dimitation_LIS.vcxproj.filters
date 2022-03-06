@@ -88,6 +88,9 @@
     <Filter Include="1. Engine\CameraManager">
       <UniqueIdentifier>{20bba814-b298-435e-8dc5-57624214449c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="4. Object\MarioObject">
+      <UniqueIdentifier>{3ccafa25-c5d8-4491-8fe0-2de625ec8444}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -195,6 +198,15 @@
     <ClInclude Include="CCameraManager.h">
       <Filter>1. Engine\CameraManager</Filter>
     </ClInclude>
+    <ClInclude Include="CMario.h">
+      <Filter>4. Object\MarioObject</Filter>
+    </ClInclude>
+    <ClInclude Include="CWall.h">
+      <Filter>4. Object\MarioObject</Filter>
+    </ClInclude>
+    <ClInclude Include="CEnemy01.h">
+      <Filter>4. Object\MarioObject</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="winAPI2Dimitation_LIS.cpp">
@@ -286,6 +298,15 @@
     </ClCompile>
     <ClCompile Include="CCameraManager.cpp">
       <Filter>1. Engine\CameraManager</Filter>
+    </ClCompile>
+    <ClCompile Include="CWall.cpp">
+      <Filter>4. Object\MarioObject</Filter>
+    </ClCompile>
+    <ClCompile Include="CMario.cpp">
+      <Filter>4. Object\MarioObject</Filter>
+    </ClCompile>
+    <ClCompile Include="CEnemy01.cpp">
+      <Filter>4. Object\MarioObject</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
