@@ -78,3 +78,9 @@ void CCameraManager::timeMove(Vec2 dest, double t)
 	maxSpeed = (destPos - pos).length() / t;
 	speed = maxSpeed * 2;
 }
+
+void CCameraManager::move(Vec2 vec)
+{
+	this->pos.x += vec.x;
+	this->pos.y += vec.y;
+}

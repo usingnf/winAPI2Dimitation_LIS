@@ -7,6 +7,7 @@
 #include <list>
 #include <map>
 #include <chrono>
+#include <assert.h>
 
 using std::vector;
 using std::map;
@@ -16,6 +17,7 @@ enum class Group_GameObj
 {
 	Default,
 	Background,
+	Tile,
 	Monster,
 	Player,
 	Missile,
@@ -28,6 +30,7 @@ enum class Group_GameObj
 enum class Group_Scene
 {
 	Default,
+	Stage_Tile,
 	Start,
 	Stage_01,
 	Stage_02,
@@ -72,8 +75,9 @@ enum class Key_State
 #include "CCollisionManager.h"
 #include "CEventManager.h"
 #include "CGameObject.h"
-#include "CCameraManager.h"
 #include "CSceneManager.h"
+#include "CCameraManager.h"
+
 
 
 
@@ -82,7 +86,7 @@ enum class Key_State
 #define CREATEOBJECT(obj, type) CEventManager::getInstance()->createGameObject(obj, type)
 #define DELETEOBJECT(obj) CEventManager::getInstance()->deleteGameObject(obj);
 #define CHANGESCENE(scene) CEventManager::getInstance()->changeScene(scene);
-#define GETMOUSEPOS() CCameraManager::getInstance()->getMousePos();
+#define GETMOUSEPOS() CKeyManager::getInstance()->getMousePos();
 
 #define PI 3.141592
 #define RADIAN (PI/180)

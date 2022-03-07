@@ -27,5 +27,6 @@ public:
 	void update();
 
 	void timeMove(Vec2 dest, double t);
+	void move(Vec2 vec);
 };
 

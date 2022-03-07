@@ -91,6 +91,9 @@
     <Filter Include="4. Object\MarioObject">
       <UniqueIdentifier>{3ccafa25-c5d8-4491-8fe0-2de625ec8444}</UniqueIdentifier>
     </Filter>
+    <Filter Include="4. Object\Tile">
+      <UniqueIdentifier>{ce68448b-54bc-490f-bca3-915586a79454}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -207,6 +210,12 @@
     <ClInclude Include="CEnemy01.h">
       <Filter>4. Object\MarioObject</Filter>
     </ClInclude>
+    <ClInclude Include="CTile.h">
+      <Filter>4. Object\Tile</Filter>
+    </ClInclude>
+    <ClInclude Include="CScene_Tile.h">
+      <Filter>2. Scene</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="winAPI2Dimitation_LIS.cpp">
@@ -307,6 +316,12 @@
     </ClCompile>
     <ClCompile Include="CEnemy01.cpp">
       <Filter>4. Object\MarioObject</Filter>
+    </ClCompile>
+    <ClCompile Include="CTile.cpp">
+      <Filter>4. Object\Tile</Filter>
+    </ClCompile>
+    <ClCompile Include="CScene_Tile.cpp">
+      <Filter>2. Scene</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

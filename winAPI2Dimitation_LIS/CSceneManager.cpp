@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "CScene_Start.h"
 #include "CScene_Stage01.h"
+#include "CScene_Tile.h"
 
 #include "CPlayer.h"
 #include "CPlayer_Right.h"
@@ -31,11 +32,14 @@ CSceneManager::~CSceneManager()
 
 void CSceneManager::init()
 {
+	arrScene[(UINT)Group_Scene::Stage_Tile] = new CScene_Tile();
+	arrScene[(UINT)Group_Scene::Stage_Tile]->setName(L"Stage_Tile");
+
 	arrScene[(UINT)Group_Scene::Start] = new CScene_Start();
 	arrScene[(UINT)Group_Scene::Start]->setName(L"Start_Scene");
 
 	arrScene[(UINT)Group_Scene::Stage_01] = new CScene_Stage01();
-	arrScene[(UINT)Group_Scene::Start]->setName(L"Start_Stage_01");
+	arrScene[(UINT)Group_Scene::Stage_01]->setName(L"Start_Stage_01");
 	
 	CText* text = new CText();
 	text->setText(L"R키를 눌러서 시작");

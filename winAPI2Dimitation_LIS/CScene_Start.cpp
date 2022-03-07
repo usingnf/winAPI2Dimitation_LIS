@@ -25,6 +25,10 @@ void CScene_Start::update()
 		CHANGESCENE(Group_Scene::Stage_01);
 		//CSceneManager::getInstance()->changeScene(Group_Scene::Stage_01);
 	}
+	if (KEY('T') == (UINT)Key_State::Tap)
+	{
+		CHANGESCENE(Group_Scene::Stage_Tile);
+	}
 }
 
 void CScene_Start::render(HDC& hDC)
@@ -40,7 +44,7 @@ void CScene_Start::render(HDC& hDC)
 
 void CScene_Start::Enter()
 {
-
+	//loadTile(L"tile\\test.tile");
 }
 
 void CScene_Start::Exit()

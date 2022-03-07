@@ -10,6 +10,9 @@ private:
 	vector<CGameObject*> m_arrObj[(UINT)Group_GameObj::Size];
 	wstring strName;
 
+	UINT tileX;
+	UINT tileY;
+
 public:
 	CScene();
 	virtual ~CScene();
@@ -27,9 +30,15 @@ public:
 	virtual void update();
 	virtual void finalupdate();
 	virtual void render(HDC& hDC);
+	void render_tile(HDC& hDC);
 
 	virtual void Enter() = 0;
 	virtual void Exit() = 0;
+
+	void createTile(UINT x, UINT y);
+	void loadTile(const wstring& path);
+	UINT getTileX();
+	UINT getTileY();
 
 protected:
 	void clearObject();

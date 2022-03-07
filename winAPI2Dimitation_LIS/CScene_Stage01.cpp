@@ -3,6 +3,7 @@
 #include "CWall.h"
 #include "CMario.h"
 #include "CMonster.h"
+#include "CTile.h"
 
 
 CScene_Stage01::CScene_Stage01()
@@ -52,6 +53,9 @@ void CScene_Stage01::render(HDC& hDC)
 
 void CScene_Stage01::Enter()
 {
+	//loadTile(L"test.tile");
+	CCameraManager::getInstance()->setLookAt(Vec2(WS_WIDTH / 2, WS_HEIGHT / 2));
+
 	CMario* mario = new CMario();
 	mario->setPos(Vec2(100, WS_HEIGHT - 36 - mario->getScale().y));
 	AddObject(mario, Group_GameObj::Player);
