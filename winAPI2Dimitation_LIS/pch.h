@@ -10,7 +10,9 @@
 #include <assert.h>
 
 using std::vector;
+using std::list;
 using std::map;
+using std::string;
 using std::wstring;
 
 enum class Group_GameObj
@@ -19,6 +21,7 @@ enum class Group_GameObj
 	Background,
 	Tile,
 	Monster,
+	Item,
 	Player,
 	Missile,
 	Wall,
@@ -77,7 +80,7 @@ enum class Key_State
 #include "CGameObject.h"
 #include "CSceneManager.h"
 #include "CCameraManager.h"
-
+#include "CUIManager.h"
 
 
 

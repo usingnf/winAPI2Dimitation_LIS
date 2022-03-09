@@ -3,7 +3,10 @@
 #include "CWall.h"
 #include "CMario.h"
 #include "CMonster.h"
+#include "CBWall.h"
+#include "CStar.h"
 #include "CTile.h"
+
 
 
 CScene_Stage01::CScene_Stage01()
@@ -76,6 +79,15 @@ void CScene_Stage01::Enter()
 		wall->setPos(Vec2(i * 64, WS_HEIGHT - 200));
 		AddObject(wall, Group_GameObj::Wall);
 	}
+
+	CWall* wall = new CWall();
+	wall->setPos(Vec2(1200, WS_HEIGHT - 72));
+	AddObject(wall, Group_GameObj::Wall);
+
+	CBWall* bWall = new CBWall();
+	bWall->setPos(Vec2(800, WS_HEIGHT - 200));
+	AddObject(bWall, Group_GameObj::Wall);
+
 	CMonster* monster = new CMonster();
 	monster->setPos(Vec2(1000, WS_HEIGHT - 36 - monster->getScale().y));
 	AddObject(monster, Group_GameObj::Monster);

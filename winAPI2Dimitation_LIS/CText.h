@@ -2,7 +2,7 @@
 class CText : public CGameObject
 {
 private:
-	WCHAR mtext[11] = L"";
+	WCHAR mtext[20] = L"";
 public:
 	CText();
 	virtual CText* clone();

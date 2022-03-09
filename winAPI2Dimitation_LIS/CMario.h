@@ -18,8 +18,8 @@ public:
 	virtual void render(HDC& hDC);
 	void CreateMissile();
 
-	void onCollisionEnter(CCollider* other);
-	void onCollisionStay(CCollider* other);
-	void onCollisionExit(CCollider* other);
+	virtual void onCollisionEnter(CCollider* other);
+	virtual void onCollisionStay(CCollider* other);
+	virtual void onCollisionExit(CCollider* other);
 };
 

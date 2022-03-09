@@ -39,6 +39,12 @@ public:
 		this->y = vec.y;
 		return *this;
 	}
+	Vec2& operator+=(const Vec2& vec)
+	{
+		this->x += vec.x;
+		this->y += vec.y;
+		return *this;
+	}
 	Vec2 operator+(const Vec2& vec)
 	{
 		return Vec2(this->x + vec.x, this->y + vec.y);

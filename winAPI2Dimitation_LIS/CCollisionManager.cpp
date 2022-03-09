@@ -133,6 +133,8 @@ void CCollisionManager::init()
 	checkGroup(Group_GameObj::Monster, Group_GameObj::Missile);
 	checkGroup(Group_GameObj::Monster, Group_GameObj::Wall);
 	checkGroup(Group_GameObj::Player, Group_GameObj::Monster);
+	checkGroup(Group_GameObj::Player, Group_GameObj::Item);
+	checkGroup(Group_GameObj::Item, Group_GameObj::Wall);
 }
 
 void CCollisionManager::update()

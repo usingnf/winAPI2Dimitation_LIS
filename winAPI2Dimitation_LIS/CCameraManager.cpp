@@ -46,6 +46,8 @@ Vec2 CCameraManager::getRealPos(Vec2 vec)
 
 void CCameraManager::update()
 {
+	
+
 	if (targetObj != nullptr)
 	{
 		if (targetObj->getIsDelete() == true)

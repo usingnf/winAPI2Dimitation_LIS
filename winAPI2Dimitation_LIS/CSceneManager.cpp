@@ -47,7 +47,7 @@ void CSceneManager::init()
 	arrScene[(UINT)Group_Scene::Start]->AddObject(text, Group_GameObj::Default);
 	CText* text2 = new CText();
 	text2->setPos(Vec2(WS_WIDTH / 2, (WS_HEIGHT / 2) + 30));
-	text2->setText(L"Å°:W/S/¡è/¡é");
+	text2->setText(L"Å°:WASD/SPACE/SHIFT");
 	arrScene[(UINT)Group_Scene::Start]->AddObject(text2, Group_GameObj::Default);
 
 	curScene = arrScene[(UINT)Group_Scene::Start];

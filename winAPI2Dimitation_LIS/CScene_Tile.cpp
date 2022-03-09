@@ -2,6 +2,9 @@
 #include "CScene_Tile.h"
 #include "resource.h"
 #include "CTile.h"
+#include "CUI.h"
+#include "CButtonUI.h"
+#include "CPanelUI.h"
 #include <commdlg.h>
 
 INT_PTR CALLBACK tileProc(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam);
@@ -53,11 +56,41 @@ void CScene_Tile::update()
 
 }
 
+void buttonFunc(DWORD_PTR param1, DWORD_PTR param2)
+{
+	CEventManager::getInstance()->changeScene(Group_Scene::Start);
+}
+
 void CScene_Tile::Enter()
 {
 	m_hWnd = CreateDialog(hInst, MAKEINTRESOURCE(IDD_Tile), hWnd, tileProc);
+
+	CPanelUI* ui = new CPanelUI();
+	ui->setPos(Vec2(200,100));
+	ui->setScale(Vec2(100, 100));
+	AddObject(ui, Group_GameObj::UI);
+
+	CButtonUI* uiChild = new CButtonUI();
+	uiChild->setPos(Vec2(50, 50));
+	uiChild->setScale(Vec2(40, 40));
+	ui->AddChild(uiChild);
+
+	CPanelUI* ui2 = ui->clone();
+	ui2->setPos(Vec2(600, 100));
+	ui2->setScale(Vec2(100, 100));
+	AddObject(ui2, Group_GameObj::UI);
+
+	CButtonUI* uiChild2 = new CButtonUI();
+	uiChild2->setPos(Vec2(50, 50));
+	uiChild2->setScale(Vec2(40, 40));
+	ui2->AddChild(uiChild2);
+
+	//uiChild->setClickedCallBack(buttonFunc ,0,0);
+
 	ShowWindow(m_hWnd, SW_SHOW);
 }
+
+
 
 void CScene_Tile::Exit()
 {

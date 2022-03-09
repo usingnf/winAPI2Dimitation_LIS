@@ -36,7 +36,7 @@ public:
 	virtual ~CGameObject();
 
 	virtual void update();
-	virtual void finalupdate() final; // 오버라이딩 금지
+	virtual void finalupdate(); //collider용
 	virtual void render(HDC& hDC);
 	virtual void component_render(HDC& hDC);
 	

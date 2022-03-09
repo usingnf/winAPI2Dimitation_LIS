@@ -94,6 +94,15 @@
     <Filter Include="4. Object\Tile">
       <UniqueIdentifier>{ce68448b-54bc-490f-bca3-915586a79454}</UniqueIdentifier>
     </Filter>
+    <Filter Include="1. Engine\SoundManager">
+      <UniqueIdentifier>{43226df3-8174-4acc-bedb-31ef8fb7b600}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="1. Engine\UIManager">
+      <UniqueIdentifier>{30228353-b6d9-4210-92fe-2b9580aec94c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="4. Object\UI">
+      <UniqueIdentifier>{f253390a-2688-4c10-b106-846bab0029b7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -162,9 +171,6 @@
     <ClInclude Include="CBall.h">
       <Filter>4. Object</Filter>
     </ClInclude>
-    <ClInclude Include="CText.h">
-      <Filter>4. Object</Filter>
-    </ClInclude>
     <ClInclude Include="CMissile2.h">
       <Filter>4. Object</Filter>
     </ClInclude>
@@ -215,6 +221,27 @@
     </ClInclude>
     <ClInclude Include="CScene_Tile.h">
       <Filter>2. Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="CBWall.h">
+      <Filter>4. Object\MarioObject</Filter>
+    </ClInclude>
+    <ClInclude Include="CStar.h">
+      <Filter>4. Object\MarioObject</Filter>
+    </ClInclude>
+    <ClInclude Include="CUIManager.h">
+      <Filter>1. Engine\UIManager</Filter>
+    </ClInclude>
+    <ClInclude Include="CUI.h">
+      <Filter>4. Object\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="CText.h">
+      <Filter>4. Object\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="CButtonUI.h">
+      <Filter>4. Object\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="CPanelUI.h">
+      <Filter>4. Object\UI</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -272,9 +299,6 @@
     <ClCompile Include="CBall.cpp">
       <Filter>4. Object</Filter>
     </ClCompile>
-    <ClCompile Include="CText.cpp">
-      <Filter>4. Object</Filter>
-    </ClCompile>
     <ClCompile Include="CMissile2.cpp">
       <Filter>4. Object</Filter>
     </ClCompile>
@@ -322,6 +346,27 @@
     </ClCompile>
     <ClCompile Include="CScene_Tile.cpp">
       <Filter>2. Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="CBWall.cpp">
+      <Filter>4. Object\MarioObject</Filter>
+    </ClCompile>
+    <ClCompile Include="CStar.cpp">
+      <Filter>4. Object\MarioObject</Filter>
+    </ClCompile>
+    <ClCompile Include="CUIManager.cpp">
+      <Filter>1. Engine\UIManager</Filter>
+    </ClCompile>
+    <ClCompile Include="CText.cpp">
+      <Filter>4. Object\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="CUI.cpp">
+      <Filter>4. Object\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="CButtonUI.cpp">
+      <Filter>4. Object\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="CPanelUI.cpp">
+      <Filter>4. Object\UI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
