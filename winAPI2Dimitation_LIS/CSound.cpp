@@ -10,10 +10,6 @@ CSound::CSound()
 CSound::~CSound()
 {
 	stop();
-	if (nullptr != m_channel)
-	{
-		delete m_channel;
-	}
 
 	if (nullptr != m_sound)
 	{

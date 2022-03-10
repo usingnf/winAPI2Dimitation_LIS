@@ -17,7 +17,7 @@ CResourceManager::~CResourceManager()
 		}
 	}
 	textureData.clear();
-
+	
 	for (map<wstring, CSound*>::iterator iter = soundData.begin(); iter != soundData.end(); ++iter)
 	{
 		if (nullptr != iter->second)
@@ -26,6 +26,7 @@ CResourceManager::~CResourceManager()
 		}
 	}
 	soundData.clear();
+	
 }
 
 
