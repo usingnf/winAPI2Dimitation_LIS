@@ -243,6 +243,12 @@
     <ClInclude Include="CPanelUI.h">
       <Filter>4. Object\UI</Filter>
     </ClInclude>
+    <ClInclude Include="CSoundManager.h">
+      <Filter>1. Engine\SoundManager</Filter>
+    </ClInclude>
+    <ClInclude Include="CSound.h">
+      <Filter>1. Engine\ResourceManager\Soundcpp</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="winAPI2Dimitation_LIS.cpp">
@@ -367,6 +373,12 @@
     </ClCompile>
     <ClCompile Include="CPanelUI.cpp">
       <Filter>4. Object\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="CSoundManager.cpp">
+      <Filter>1. Engine\SoundManager</Filter>
+    </ClCompile>
+    <ClCompile Include="CSound.cpp">
+      <Filter>1. Engine\ResourceManager\Soundcpp</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

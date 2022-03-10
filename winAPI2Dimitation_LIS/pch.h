@@ -70,11 +70,10 @@ enum class Key_State
 #include "CCore.h"
 #include "CSingleton.h"
 #include "CTimeManager.h"
-
-
 #include "CKeyManager.h"
 #include "CPathManager.h"
 #include "CResourceManager.h"
+#include "CSoundManager.h"
 #include "CCollisionManager.h"
 #include "CEventManager.h"
 #include "CGameObject.h"

@@ -3,7 +3,7 @@
 
 #include "pch.h"
 #include "winAPI2Dimitation_LIS.h"
-#include "logger.h"
+#include <locale.h>
 
 #define MAX_LOADSTRING 100
 
@@ -48,6 +48,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     LoadStringW(hInstance, IDS_APP_TITLE, szTitle, MAX_LOADSTRING);
     LoadStringW(hInstance, IDC_WINAPI2DIMITATIONLIS, szWindowClass, MAX_LOADSTRING);
     MyRegisterClass(hInstance);
+    setlocale(LC_ALL, "");
 
     // 애플리케이션 초기화를 수행합니다:
     if (!InitInstance (hInstance, nCmdShow))

@@ -30,3 +30,8 @@ const WCHAR* CPathManager::getContentPath()
 {
 	return szContentPath;
 }
+
+const WCHAR* CPathManager::getContentRelativePath()
+{
+	return L"..\\Release\\content";
+}

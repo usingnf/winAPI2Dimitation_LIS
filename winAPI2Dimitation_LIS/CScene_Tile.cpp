@@ -5,6 +5,7 @@
 #include "CUI.h"
 #include "CButtonUI.h"
 #include "CPanelUI.h"
+#include "CSound.h"
 #include <commdlg.h>
 
 INT_PTR CALLBACK tileProc(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam);
@@ -58,7 +59,9 @@ void CScene_Tile::update()
 
 void buttonFunc(DWORD_PTR param1, DWORD_PTR param2)
 {
-	CEventManager::getInstance()->changeScene(Group_Scene::Start);
+	//CEventManager::getInstance()->changeScene(Group_Scene::Start);
+	CSoundManager::getInstance()->addSound(L"testsound", L"testsound.wav", true, false);
+	CSoundManager::getInstance()->play(L"testsound");
 }
 
 void CScene_Tile::Enter()
@@ -85,7 +88,7 @@ void CScene_Tile::Enter()
 	uiChild2->setScale(Vec2(40, 40));
 	ui2->AddChild(uiChild2);
 
-	//uiChild->setClickedCallBack(buttonFunc ,0,0);
+	uiChild->setClickedCallBack(buttonFunc ,0,0);
 
 	ShowWindow(m_hWnd, SW_SHOW);
 }

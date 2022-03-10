@@ -10,5 +10,6 @@ public:
 	
 	void init();
 	const WCHAR* getContentPath();
+	const WCHAR* getContentRelativePath();
 };
 

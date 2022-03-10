@@ -23,13 +23,15 @@ CCore::~CCore()
 
 void CCore::update()
 {
-	CEventManager::getInstance()->update();
+	
 	CTimeManager::getInstance()->update();
 	CKeyManager::getInstance()->update();
 	CSceneManager::getInstance()->update();
 	CCollisionManager::getInstance()->update();
 	CCameraManager::getInstance()->update();
+	CSoundManager::getInstance()->update();
 	CUIManager::getInstance()->update();
+	CEventManager::getInstance()->update();
 }
 
 void CCore::render()
@@ -51,6 +53,7 @@ void CCore::render()
 void CCore::init()
 {
 	CPathManager::getInstance()->init();
+	CSoundManager::getInstance()->init();
 	//CResourceManager::getInstance()->init();
 	CTimeManager::getInstance()->init();
 	CKeyManager::getInstance()->init();
