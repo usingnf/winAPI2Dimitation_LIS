@@ -100,6 +100,11 @@ void CUIManager::setFocusedUI(CUI* UI)
 		}
 	}
 
+	if (vecUI.end() == iter)
+	{
+		return;
+	}
+
 	vecUI.erase(iter);
 	vecUI.push_back(focusedUI);
 }
@@ -148,15 +153,13 @@ CUI* CUIManager::getTargetUI(CUI* parentUI)
 
 CUI* CUIManager::getFocusedUI()
 {
-	//코드 복사만 해놨음.
 	CScene* pCurScene = CSceneManager::getInstance()->getCurScene();
 	vector<CGameObject*>& vecUI = pCurScene->getArrObj()[(UINT)Group_GameObj::UI];
-
 	CUI* pFocusedUI = focusedUI;
 
 	if (KEY(VK_LBUTTON) != (UINT)Key_State::Tap)
 	{
-		return pFocusedUI;	// 클릭이 없었으니 포커스 변환 없음
+		return pFocusedUI;
 	}
 
 	vector<CGameObject*>::iterator targetIter = vecUI.end();
@@ -170,7 +173,7 @@ CUI* CUIManager::getFocusedUI()
 	}
 	if (vecUI.end() == targetIter)
 	{
-		return nullptr;		// targetIter가 end iterator라는 것은 마우스가 올려진 포커스된 UI가 없다는 의미
+		return nullptr;
 	}
 
 	pFocusedUI = (CUI*)*targetIter;

@@ -52,6 +52,7 @@ void CEventManager::execute(const tEvent& _event)
 	case Type_Event::Change_Scene:
 	{
 		Group_Scene group = (Group_Scene)_event.lParam;
+		CUIManager::getInstance()->setFocusedUI(nullptr);
 		CSceneManager::getInstance()->changeScene(group);
 		break;
 	}

@@ -14,7 +14,7 @@ CSound::~CSound()
 	if (nullptr != m_sound)
 	{
 		m_sound->release();
-		delete m_sound;
+		//delete m_sound;
 	}
 }
 

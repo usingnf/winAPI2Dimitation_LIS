@@ -26,18 +26,20 @@ enum class Group_Brush
 	Size,
 };
 
+class CTexture;
 
 class CCore
 {
 	SINGLETON(CCore);
 private:
 	HDC m_hDC;
-	HDC m_hMemDC;
-	HBITMAP m_hBMP;
+	CTexture* m_MemTexture;
+
+	//HDC m_hMemDC;
+	//HBITMAP m_hBMP;
 
 	HPEN m_arrPen[(UINT)Group_Pen::Size];
 	HBRUSH m_arrBrush[(UINT)Group_Brush::Size];
-
 public:
 	void update();
 	//void finalupdate();

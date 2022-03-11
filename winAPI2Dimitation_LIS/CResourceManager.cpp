@@ -61,6 +61,21 @@ CTexture* CResourceManager::loadTexture(const wstring& name, const wstring& path
 	return texture;
 }
 
+CTexture* CResourceManager::createTexture(const wstring& name, UINT width, UINT height)
+{
+	CTexture* texture = findTexture(name);
+	if (nullptr != texture)
+		return texture;
+
+	texture = new CTexture();
+	texture->create(width, height);
+	texture->setName(name);
+
+	textureData.insert(std::make_pair(name, texture));
+
+	return texture;
+}
+
 CSound* CResourceManager::findSound(const wstring& name)
 {
 	map<wstring, CSound*>::iterator iter = soundData.find(name);

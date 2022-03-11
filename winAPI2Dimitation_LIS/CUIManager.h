@@ -8,10 +8,10 @@ private:
 	CUI* focusedUI;
 public:
 	void update();
-
+	void setFocusedUI(CUI* ui);
 private:
 	CUI* getTargetUI(CUI* parentUI);
 	CUI* getFocusedUI();
-	void setFocusedUI(CUI* ui);
+	
 };
 

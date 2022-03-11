@@ -60,7 +60,7 @@ void CScene_Tile::update()
 void buttonFunc(DWORD_PTR param1, DWORD_PTR param2)
 {
 	//CEventManager::getInstance()->changeScene(Group_Scene::Start);
-	CSoundManager::getInstance()->addSound(L"testsound", L"testsound.wav", true, false);
+	CSoundManager::getInstance()->addSound(L"testsound", L"testsound.wav", false, false);
 	CSoundManager::getInstance()->play(L"testsound");
 }
 

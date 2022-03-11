@@ -12,10 +12,14 @@ public:
 	virtual ~CTexture();
 
 	void load(const wstring& path);
-	HDC getDC();
+	void create(UINT width, UINT height);
+
+	HDC& getDC();
 	HBITMAP getBitmap();
 	BITMAP getBitmapInfo();
 	int getBitmapWidth();
 	int getBitmapHeight();
+
+
 };
 

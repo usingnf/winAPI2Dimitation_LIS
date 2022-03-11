@@ -13,6 +13,7 @@ public:
 	//void init();
 	CTexture* findTexture(const wstring& name);
 	CTexture* loadTexture(const wstring& name, const wstring& path);
+	CTexture* createTexture(const wstring& name, UINT width, UINT height);
 	
 	CSound* findSound(const wstring& name);
 	CSound* loadBGM(const wstring& name, const wstring& path);
