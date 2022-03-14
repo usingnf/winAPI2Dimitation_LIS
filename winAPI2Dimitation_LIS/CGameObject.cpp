@@ -13,6 +13,7 @@ CGameObject::CGameObject()
 	drag = 0;
 
 	texture = nullptr;
+	image = nullptr;
 	collider = nullptr;
 	animator = nullptr;
 
@@ -34,7 +35,8 @@ CGameObject::CGameObject(const CGameObject& other)
 	collider = nullptr;
 	animator = nullptr;
 
-	texture = other.texture;
+	image = other.image;
+	//texture = other.texture;
 
 	if (nullptr != other.collider)
 	{

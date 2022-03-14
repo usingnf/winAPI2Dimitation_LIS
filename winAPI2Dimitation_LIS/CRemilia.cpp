@@ -21,8 +21,9 @@ CRemilia::CRemilia()
 	createCollider();
 	getCollider()->setColliderScale(Vec2(50, 50));
 
-	texture = CResourceManager::getInstance()->loadTexture(L"Remilia", L"Remilia.bmp");
+	//texture = CResourceManager::getInstance()->loadTexture(L"Remilia", L"Remilia.bmp");
 
+	/*
 	createAnimator();
 	getAnimator()->createAnimation(L"stay", texture, Vec2(0,48), Vec2(48,48), Vec2(48,0), 0.08, 4);
 	getAnimator()->play(L"stay");
@@ -30,6 +31,7 @@ CRemilia::CRemilia()
 	CAnimation* ani;
 	ani = getAnimator()->findAnimation(L"stay");
 	ani->setLoop(true);
+	*/
 }
 
 CRemilia* CRemilia::clone()

@@ -52,22 +52,34 @@ void CCollider::render(HDC& hDC)
 	HBRUSH hOldBrush = (HBRUSH)SelectObject(hDC, hHollowBrush);*/
 
 	Group_Pen pType;
+	COLORREF color = RGB(0, 0, 0);
 	if (collCount)
+	{
+		color = RGB(255, 0, 0);
 		pType = Group_Pen::Red;
+	}
 	else
+	{
+		color = RGB(0, 255, 0);
 		pType = Group_Pen::Green;
+	}
+		
 
 	SelectGDI brush(hDC, Group_Brush::Hollow);
 	SelectGDI pen(hDC, pType);
 
 	Vec2 camPos = CCameraManager::getInstance()->getRenderPos(colliderPos);
 
-	Rectangle(hDC,
+	CRenderManager::getInstance()->RenderFillRectangle(
+		camPos.x - (colliderScale.x / 2), camPos.y - (colliderScale.y / 2),
+		camPos.x + (colliderScale.x / 2), camPos.y + (colliderScale.y / 2), color);
+
+	/*Rectangle(hDC,
 		camPos.x - (colliderScale.x / 2),
 		camPos.y - (colliderScale.y / 2),
 		camPos.x + (colliderScale.x / 2),
 		camPos.y + (colliderScale.y / 2));
-
+		*/
 
 	/*SelectObject(hDC, hOldPen);
 	SelectObject(hDC, hHollowBrush);*/

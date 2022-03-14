@@ -18,14 +18,16 @@ CMario::CMario()
 	createCollider();
 	getCollider()->setColliderScale(Vec2(36, 54));
 
-	texture = CResourceManager::getInstance()->loadTexture(L"Mario", L"Mario_Player2.bmp");
-
+	//texture = CResourceManager::getInstance()->loadTexture(L"Mario", L"Mario_Player2.bmp");
+	image = CResourceManager::getInstance()->loadD2DImage(L"Mario", L"\\texture\\Mario_Player2.bmp");
+	
 	createAnimator();
-	getAnimator()->createAnimation(L"Stand", texture, Vec2(8, 8), Vec2(36, 64), Vec2(36, 0), 0.2, 1);
-	getAnimator()->createAnimation(L"Walk", texture, Vec2(44, 8), Vec2(36, 64), Vec2(36, 0), 0.2, 3);
-	getAnimator()->createAnimation(L"Run", texture, Vec2(44, 8), Vec2(36, 64), Vec2(36, 0), 0.05, 3);
-	getAnimator()->createAnimation(L"Jump", texture, Vec2(188, 8), Vec2(36, 64), Vec2(36, 0), 0.2, 1);
-	getAnimator()->createAnimation(L"Die", texture, Vec2(512, 72), Vec2(36, 32), Vec2(36, 0), 0.2, 1);
+	
+	getAnimator()->createAnimation(L"Stand", image, Vec2(8, 8), Vec2(36, 64), Vec2(36, 0), 0.2, 1);
+	getAnimator()->createAnimation(L"Walk", image, Vec2(44, 8), Vec2(36, 64), Vec2(36, 0), 0.2, 3);
+	getAnimator()->createAnimation(L"Run", image, Vec2(44, 8), Vec2(36, 64), Vec2(36, 0), 0.05, 3);
+	getAnimator()->createAnimation(L"Jump", image, Vec2(188, 8), Vec2(36, 64), Vec2(36, 0), 0.2, 1);
+	getAnimator()->createAnimation(L"Die", image, Vec2(512, 72), Vec2(36, 32), Vec2(36, 0), 0.2, 1);
 	getAnimator()->play(L"Stand");
 
 	CAnimation* ani;
@@ -33,6 +35,7 @@ CMario::CMario()
 	ani->GetFrame(0).fptOffset = Vec2(0, 0);
 	//ani->GetFrame(0).duration = 1;
 	ani->setLoop(true);
+	
 }
 
 CMario* CMario::clone()
@@ -46,6 +49,7 @@ CMario::~CMario()
 
 void CMario::update()
 {
+	
 	if (this->pos.x < WS_WIDTH / 2)
 	{
 		CCameraManager::getInstance()->setLookAt(Vec2(WS_WIDTH / 2, WS_HEIGHT / 2));
@@ -239,6 +243,7 @@ void CMario::update()
 	CAnimator* ani = getAnimator();
 	if (ani != nullptr)
 		ani->update();
+		
 }
 
 void CMario::render(HDC& hDC)

@@ -4,6 +4,7 @@
 class CCollider;
 //class CAnimator;
 class CTexture;
+class CD2DImage;
 
 class CGameObject
 {
@@ -19,6 +20,7 @@ protected:
 	double drag;
 
 	CTexture* texture;
+	CD2DImage* image;
 	CCollider* collider;
 	CAnimator* animator;
 

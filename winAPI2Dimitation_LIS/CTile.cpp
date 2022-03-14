@@ -4,7 +4,7 @@
 CTile::CTile()
 {
 	this->scale = Vec2(Tile_Size, Tile_Size);
-	//texture = CResourceManager::getInstance()->loadTexture(L"Tile", L"tilemap.bmp");
+	texture = CResourceManager::getInstance()->loadTexture(L"Tile", L"tilemap.bmp");
 	tileIndex = 0;
 }
 

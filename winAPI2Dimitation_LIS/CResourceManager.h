@@ -8,7 +8,7 @@ class CResourceManager
 private:
 	map<wstring, CTexture*> textureData;
 	map<wstring, CSound*> soundData;
-
+	map<wstring, CD2DImage*> m_mapD2DImg;
 public:
 	//void init();
 	CTexture* findTexture(const wstring& name);
@@ -18,5 +18,8 @@ public:
 	CSound* findSound(const wstring& name);
 	CSound* loadBGM(const wstring& name, const wstring& path);
 	CSound* loadSound(const wstring& name, const wstring& path);
+
+	CD2DImage* findD2DImage(const wstring& name);
+	CD2DImage* loadD2DImage(const wstring& name, const wstring& strRelativePath);
 };
 

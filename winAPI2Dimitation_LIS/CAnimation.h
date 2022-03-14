@@ -2,6 +2,7 @@
 
 class CAnimator;
 class CTexture;
+class CD2DImage;
 
 struct tAniFrame
 {
@@ -17,12 +18,14 @@ class CAnimation
 private:
 	wstring name;
 	CAnimator* animator;
-	CTexture* texture;
+	//CTexture* texture;
+	CD2DImage* image;
 	vector<tAniFrame> vecFrame;
 	
 	int curFrame;
 	double accTime;
 	bool isLoop;
+	bool reverse;
 public:
 	CAnimation();
 	~CAnimation();
@@ -39,6 +42,7 @@ public:
 	void update();
 	void render(HDC& hDC);
 
-	void create(CTexture* tex, Vec2 leftTop, Vec2 slice, Vec2 step, float duration, UINT frameCount);
+	void create(CD2DImage* tex, Vec2 lt, Vec2 slice, Vec2 step, float duration, UINT frmCount);
+	//void create(CTexture* tex, Vec2 leftTop, Vec2 slice, Vec2 step, float duration, UINT frameCount);
 };
 

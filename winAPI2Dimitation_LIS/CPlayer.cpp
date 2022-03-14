@@ -16,8 +16,9 @@ CPlayer::CPlayer()
 	getCollider()->setColliderScale(Vec2(50, 50));
 	//collider->setColliderScale(Vec2(50, 50));
 
-	texture = CResourceManager::getInstance()->loadTexture(L"Player", L"Animation_Player.bmp");
+	//texture = CResourceManager::getInstance()->loadTexture(L"Player", L"Animation_Player.bmp");
 
+	/*
 	createAnimator();
 	getAnimator()->createAnimation(L"Stand", texture, Vec2(0, 0), Vec2(70, 70), Vec2(70, 0), 0.2, 3);
 	getAnimator()->play(L"Stand");
@@ -27,6 +28,7 @@ CPlayer::CPlayer()
 	ani->GetFrame(1).fptOffset = Vec2(10, 10);
 	ani->GetFrame(1).duration = 1;
 	ani->setLoop(true);
+	*/
 }
 
 CPlayer* CPlayer::clone()

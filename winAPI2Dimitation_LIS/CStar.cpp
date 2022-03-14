@@ -11,11 +11,13 @@ CStar::CStar()
 	createCollider();
 	getCollider()->setColliderScale(scale);
 
-	texture = CResourceManager::getInstance()->loadTexture(L"Star", L"Mario_Item2.bmp");
+	//texture = CResourceManager::getInstance()->loadTexture(L"Star", L"Mario_Item2.bmp");
 
+	/*
 	createAnimator();
 	getAnimator()->createAnimation(L"Stand", texture, Vec2(4, 556), Vec2(32, 32), Vec2(32, 0), 1, 1);
 	getAnimator()->play(L"Stand");
+	*/
 }
 
 CStar* CStar::clone()

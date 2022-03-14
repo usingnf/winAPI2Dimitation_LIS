@@ -28,9 +28,6 @@
     <Filter Include="1. Engine\ResourceManager">
       <UniqueIdentifier>{9a41ff66-2fbd-4766-a695-bd2f9a3f51e8}</UniqueIdentifier>
     </Filter>
-    <Filter Include="1. Engine\FieldManager">
-      <UniqueIdentifier>{8cc08747-a6be-4ebe-ab92-94b5e6000364}</UniqueIdentifier>
-    </Filter>
     <Filter Include="1. Engine\EventManager">
       <UniqueIdentifier>{de126668-262b-4811-93d5-5788f6a38e55}</UniqueIdentifier>
     </Filter>
@@ -102,6 +99,9 @@
     </Filter>
     <Filter Include="4. Object\UI">
       <UniqueIdentifier>{f253390a-2688-4c10-b106-846bab0029b7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="1. Engine\CRenderManager">
+      <UniqueIdentifier>{18d19c98-d875-4f05-b920-1e73409230f6}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -249,6 +249,12 @@
     <ClInclude Include="CSound.h">
       <Filter>1. Engine\ResourceManager\Soundcpp</Filter>
     </ClInclude>
+    <ClInclude Include="CRenderManager.h">
+      <Filter>1. Engine\CRenderManager</Filter>
+    </ClInclude>
+    <ClInclude Include="CD2DImage.h">
+      <Filter>1. Engine\CRenderManager</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="winAPI2Dimitation_LIS.cpp">
@@ -380,6 +386,12 @@
     <ClCompile Include="CSound.cpp">
       <Filter>1. Engine\ResourceManager\Soundcpp</Filter>
     </ClCompile>
+    <ClCompile Include="CRenderManager.cpp">
+      <Filter>1. Engine\CRenderManager</Filter>
+    </ClCompile>
+    <ClCompile Include="CD2DImage.cpp">
+      <Filter>1. Engine\CRenderManager</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="winAPI2Dimitation_LIS.rc">
@@ -393,5 +405,8 @@
     <Image Include="winAPI2Dimitation_LIS.ico">
       <Filter>리소스 파일</Filter>
     </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
 </Project>

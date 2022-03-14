@@ -36,6 +36,22 @@ CGameObject* CAnimator::getOwner()
 	return owner;
 }
 
+
+void CAnimator::createAnimation(const wstring& strName, CD2DImage* tex, Vec2 lt, Vec2 slice, Vec2 step, float duration, UINT frmCount)
+{
+	CAnimation* pAni = findAnimation(strName);
+	assert(nullptr == pAni);
+
+	pAni = new CAnimation;
+
+	pAni->setName(strName);
+	pAni->animator = this;
+	pAni->create(tex, lt, slice, step, duration, frmCount);
+
+	m_mapAni.insert(make_pair(strName, pAni));
+}
+
+/*
 void CAnimator::createAnimation(const wstring& name, CTexture* tex, Vec2 leftTop, Vec2 slice, Vec2 step, float duration, UINT frameCount)
 {
 	CAnimation* ani = findAnimation(name);
@@ -50,6 +66,7 @@ void CAnimator::createAnimation(const wstring& name, CTexture* tex, Vec2 leftTop
 
 	m_mapAni.insert(make_pair(name, ani));
 }
+*/
 
 CAnimation* CAnimator::findAnimation(const wstring& name)
 {

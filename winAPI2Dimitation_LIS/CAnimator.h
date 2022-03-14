@@ -18,7 +18,9 @@ public:
 
 	CGameObject* getOwner();
 
-	void createAnimation(const wstring& name, CTexture* tex, Vec2 leftTop, Vec2 slice, Vec2 step, float duration, UINT frameCount);
+	//void createAnimation(const wstring& name, CTexture* tex, Vec2 leftTop, Vec2 slice, Vec2 step, float duration, UINT frameCount);
+	void createAnimation(const wstring& strName, CD2DImage* tex, Vec2 lt, Vec2 slice,
+		Vec2 step, float duration, UINT frmCount);
 	CAnimation* findAnimation(const wstring& name);
 	CAnimation* getCurAnimation();
 	wstring getCurAnimationName();

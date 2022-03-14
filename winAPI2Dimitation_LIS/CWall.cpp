@@ -10,11 +10,13 @@ CWall::CWall()
 	createCollider();
 	getCollider()->setColliderScale(scale);
 
-	texture = CResourceManager::getInstance()->loadTexture(L"Wall", L"Mario_Wall2.bmp");
+	//texture = CResourceManager::getInstance()->loadTexture(L"Wall", L"Mario_Wall2.bmp");
 
+	/*
 	createAnimator();
 	getAnimator()->createAnimation(L"Stand", texture, Vec2(32, 0), Vec2(64, 32), Vec2(64, 0), 1, 1);
 	getAnimator()->play(L"Stand");
+	*/
 }
 
 CWall* CWall::clone()

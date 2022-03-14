@@ -41,10 +41,11 @@ private:
 	HPEN m_arrPen[(UINT)Group_Pen::Size];
 	HBRUSH m_arrBrush[(UINT)Group_Brush::Size];
 public:
+	void init();
 	void update();
 	//void finalupdate();
 	void render();
-	void init();
+	
 	HDC getMainDC();
 
 	void createBrushPen();

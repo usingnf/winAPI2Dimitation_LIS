@@ -72,7 +72,9 @@ enum class Key_State
 #include "CTimeManager.h"
 #include "CKeyManager.h"
 #include "CPathManager.h"
+#include "CRenderManager.h"
 #include "CResourceManager.h"
+
 #include "CSoundManager.h"
 #include "CCollisionManager.h"
 #include "CEventManager.h"

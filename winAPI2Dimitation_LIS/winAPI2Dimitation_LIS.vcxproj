@@ -158,6 +158,7 @@
     <ClInclude Include="CCollisionManager.h" />
     <ClInclude Include="CCollider.h" />
     <ClInclude Include="CCore.h" />
+    <ClInclude Include="CD2DImage.h" />
     <ClInclude Include="CEnemy01.h" />
     <ClInclude Include="CEventManager.h" />
     <ClInclude Include="CKeyManager.h" />
@@ -171,6 +172,7 @@
     <ClInclude Include="CPlayer.h" />
     <ClInclude Include="CPlayer_Right.h" />
     <ClInclude Include="CRemilia.h" />
+    <ClInclude Include="CRenderManager.h" />
     <ClInclude Include="CResource.h" />
     <ClInclude Include="CResourceManager.h" />
     <ClInclude Include="CScene.h" />
@@ -208,6 +210,7 @@
     <ClCompile Include="CCollisionManager.cpp" />
     <ClCompile Include="CCollider.cpp" />
     <ClCompile Include="CCore.cpp" />
+    <ClCompile Include="CD2DImage.cpp" />
     <ClCompile Include="CEnemy01.cpp" />
     <ClCompile Include="CEventManager.cpp" />
     <ClCompile Include="CKeyManager.cpp" />
@@ -221,6 +224,7 @@
     <ClCompile Include="CPlayer.cpp" />
     <ClCompile Include="CPlayer_Right.cpp" />
     <ClCompile Include="CRemilia.cpp" />
+    <ClCompile Include="CRenderManager.cpp" />
     <ClCompile Include="CResource.cpp" />
     <ClCompile Include="CResourceManager.cpp" />
     <ClCompile Include="CScene.cpp" />
@@ -254,6 +258,9 @@
   <ItemGroup>
     <Image Include="small.ico" />
     <Image Include="winAPI2Dimitation_LIS.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

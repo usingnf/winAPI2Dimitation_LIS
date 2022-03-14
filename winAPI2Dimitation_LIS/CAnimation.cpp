@@ -1,14 +1,18 @@
 #include "pch.h"
 #include "CAnimation.h"
 
+
+
 CAnimation::CAnimation()
 {
 	name = L"Noname";
 	animator = nullptr;
-	texture = nullptr;
+	//texture = nullptr;
+	image = nullptr;
 	curFrame = -1;
 	accTime = 0;
 	isLoop = true;
+	reverse = false;
 }
 
 CAnimation::~CAnimation()
@@ -68,6 +72,53 @@ void CAnimation::render(HDC& hDC)
 	Vec2 pos = obj->getPos() + frm.fptOffset;
 	pos = CCameraManager::getInstance()->getRenderPos(pos);
 
+	if (reverse)
+	{
+		CRenderManager::getInstance()->RenderRevFrame(
+			image,
+			pos.x - frm.slice.x / 2.f,
+			pos.y - frm.slice.y / 2.f,
+			pos.x + frm.slice.x / 2.f,
+			pos.y + frm.slice.y / 2.f,
+			frm.leftTop.x,
+			frm.leftTop.y,
+			frm.leftTop.x + frm.slice.x,
+			frm.leftTop.y + frm.slice.y
+		);
+	}
+	else
+	{
+		CRenderManager::getInstance()->RenderFrame(
+			image,
+			pos.x - frm.slice.x / 2.f,
+			pos.y - frm.slice.y / 2.f,
+			pos.x + frm.slice.x / 2.f,
+			pos.y + frm.slice.y / 2.f,
+			frm.leftTop.x,
+			frm.leftTop.y,
+			frm.leftTop.x + frm.slice.x,
+			frm.leftTop.y + frm.slice.y
+		);
+	}
+
+	/*
+	BLENDFUNCTION bf = {};
+	bf.BlendOp = AC_SRC_OVER;
+	bf.BlendFlags = 0;
+	bf.AlphaFormat = 0;
+	bf.SourceConstantAlpha = 255;
+
+	AlphaBlend(hDC, 0, 0,
+		(int)texture->getBitmapWidth(),
+		(int)texture->getBitmapHeight(),
+		texture->getDC(),
+		0, 0,
+		(int)texture->getBitmapWidth(),
+		(int)texture->getBitmapHeight(),
+		bf);
+	
+	*/
+	/*
 	TransparentBlt(hDC,
 		(int)pos.x - frm.slice.x / 2, 
 		(int)pos.y - frm.slice.y / 2, 
@@ -79,10 +130,25 @@ void CAnimation::render(HDC& hDC)
 		frm.slice.x,
 		frm.slice.y, 
 		RGB(255,0,255));
-		
+		*/
 		
 }
 
+void CAnimation::create(CD2DImage* img, Vec2 lt, Vec2 slice, Vec2 step, float duration,	UINT frmCount)
+{
+	image = img;
+
+	tAniFrame frm = {};
+	for (UINT i = 0; i < frmCount; i++)
+	{
+		frm.duration = duration;
+		frm.slice = slice;
+		frm.leftTop = lt + step * i;
+
+		vecFrame.push_back(frm);
+	}
+}
+/*
 void CAnimation::create(CTexture* tex, Vec2 leftTop, Vec2 slice, Vec2 step, float duration, UINT frameCount)
 {
 	this->texture = tex;
@@ -97,7 +163,7 @@ void CAnimation::create(CTexture* tex, Vec2 leftTop, Vec2 slice, Vec2 step, floa
 		vecFrame.push_back(frm);
 	}
 }
-
+*/
 void CAnimation::SetFrame(int frmIndex)
 {
 	curFrame = frmIndex;

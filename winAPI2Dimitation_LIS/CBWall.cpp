@@ -11,12 +11,12 @@ CBWall::CBWall()
 	createCollider();
 	getCollider()->setColliderScale(scale);
 
-	texture = CResourceManager::getInstance()->loadTexture(L"BWall", L"Mario_Wall2.bmp");
+	//texture = CResourceManager::getInstance()->loadTexture(L"BWall", L"Mario_Wall2.bmp");
 
-	createAnimator();
-	getAnimator()->createAnimation(L"Stand", texture, Vec2(480, 0), Vec2(32, 32), Vec2(32, 0), 0.5, 3);
-	getAnimator()->createAnimation(L"Die", texture, Vec2(96, 0), Vec2(32, 32), Vec2(32, 0), 1, 1);
-	getAnimator()->play(L"Stand");
+	//createAnimator();
+	//getAnimator()->createAnimation(L"Stand", texture, Vec2(480, 0), Vec2(32, 32), Vec2(32, 0), 0.5, 3);
+	//getAnimator()->createAnimation(L"Die", texture, Vec2(96, 0), Vec2(32, 32), Vec2(32, 0), 1, 1);
+	//getAnimator()->play(L"Stand");
 }
 
 CBWall* CBWall::clone()

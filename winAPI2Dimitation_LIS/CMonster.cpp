@@ -14,12 +14,14 @@ CMonster::CMonster()
 	createCollider();
 	getCollider()->setColliderScale(Vec2(28, 28));
 
-	texture = CResourceManager::getInstance()->loadTexture(L"Gumba", L"Mario_Monster2.bmp");
+	//texture = CResourceManager::getInstance()->loadTexture(L"Gumba", L"Mario_Monster2.bmp");
 
+	/*
 	createAnimator();
 	getAnimator()->createAnimation(L"Walk", texture, Vec2(0, 0), Vec2(28, 28), Vec2(28, 0), 0.2, 2);
 	getAnimator()->createAnimation(L"Die", texture, Vec2(56, 0), Vec2(28, 28), Vec2(28, 0), 0.2, 1);
 	getAnimator()->play(L"Walk");
+	*/
 }
 
 CMonster* CMonster::clone()
