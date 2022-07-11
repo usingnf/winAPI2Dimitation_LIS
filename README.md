@@ -1,2 +1,2 @@
 # winAPI2Dimitation_LIS
-프로그래밍 33기 이인석
+winApi 기초 학습용 리포지토리
